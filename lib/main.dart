@@ -6,7 +6,6 @@ import 'package:kcs_2020_shinkan_web/GroupPage/groupPage.dart';
 import 'package:kcs_2020_shinkan_web/SchedulePage/schedulePage.dart';
 import 'package:kcs_2020_shinkan_web/ShinkanPage/shinkanPage.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksPage.dart';
-import 'package:kcs_2020_shinkan_web/csk.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/qaPage.dart';
 import 'mainPage.dart';
 
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'KCS::Keio Computer Society 新歓特設サイト',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: "Noto Sans JP",
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
         ],
       routes: {
         "/main" :     (_) => new MainPage(),
-        //"/csk" :       (_) => new cskPage(),
         "/questions": (_) => new QAPage(),
         "/works":     (_) => new WorksPage(),
         "/shinkan":   (_) => new ShinkanPage(),
@@ -40,7 +38,6 @@ class MyApp extends StatelessWidget {
         "/schedule":  (_) => new SchedulePage()
       },
       home: MainPage()
-      //home: cskPage(),
     );
   }
 }

@@ -1,5 +1,5 @@
 name: kcs_2020_shinkan_web
-description: A new Flutter application.
+description: Keio Computer Society 2020年度新歓特設ページです！
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -25,13 +25,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_localizations:
     sdk: flutter
-  carousel_slider: ^1.4.1
-  flutter_calendar_carousel: ^1.4.11
   expandable: ^4.1.2
   auto_size_text: ^2.1.0
   responsive_grid: ^1.1.1
   url_launcher: ^5.4.2
-  flutter_svg: ^0.17.3
 
 dev_dependencies:
   flutter_test:
@@ -53,15 +50,6 @@ flutter:
     - image/kcsdragon.png
     - image/uzuka.jpg
     - image/uzuka_rough.jpg
-    - image/carousel1.jpg
-    - image/carousel2.jpg
-    - image/carousel3.jpg
-    - image/carousel4.jpg
-    - image/carousel5.jpg
-    - image/carousel6.jpg
-    - image/carousel7.jpg
-    - image/carousel8.jpg
-    - image/carousel9.jpg
     - image/kcschann.png
     - image/topbackground.jpg
     - image/top_ai.png
@@ -70,7 +58,6 @@ flutter:
     - image/top_unity.png
     - image/top_web.png
     - image/kcslogo.png
-    - image/group_tekitou.png
     - image/groupintroduce.jpg
     - image/events.jpg
     - image/twitterlogo.png
