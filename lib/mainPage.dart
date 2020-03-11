@@ -181,51 +181,53 @@ class MainPageState extends State<MainPage> {
               MainFooter(deviceInfo: deviceInfo,),
             ],
           );*/
-          return SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              children: <Widget>[
-                DelayLoadingView(
-                    key: mainTopKey,
-                    waiting: waitingMainTop,
-                    child: MainTopPosterView(
-                      deviceInfo: deviceInfo,
-                      toWhat: toWhatListener,
-                      toShinkan: toShinkanListener,
-                      toWork: toWorkListener,
-                      toQA: toQAListener,
-                    )
-                ),
-                DelayLoadingViewLite(
-                  key: mainWhatKey,
-                    waiting: waitingMainWhat,
-                    child: MainWhatIsKCSView(deviceInfo: deviceInfo,)
-                ),
-                DelayLoadingViewLite(
-                  key: mainShinkanKey,
-                  waiting: waitingMainShinkan,
-                  child: MainShinkanView(deviceInfo: deviceInfo,),
-                ),
-                DelayLoadingViewLite(
-                  key: mainWorksKey,
-                    waiting: waitingMainWork,
-                    child: MainWorksView(deviceInfo: deviceInfo,)
-                ),
-                DelayLoadingViewLite(
-                  key: mainQAKey,
-                    waiting: waitingMainQA,
-                  child: MainQAView(deviceInfo: deviceInfo,),
-                ),
-                DelayLoadingViewLite(
-                  key: mainFooterKey,
-                  waiting: waitingMainFooter,
-                  child: MainFooter(deviceInfo: deviceInfo,),
-                )
-                /*
-                Q＆A
-                footer
-                 */
-              ],
+          return Scrollbar(
+            child: SingleChildScrollView(
+              controller: scrollController,
+              child: Column(
+                children: <Widget>[
+                  DelayLoadingView(
+                      key: mainTopKey,
+                      waiting: waitingMainTop,
+                      child: MainTopPosterView(
+                        deviceInfo: deviceInfo,
+                        toWhat: toWhatListener,
+                        toShinkan: toShinkanListener,
+                        toWork: toWorkListener,
+                        toQA: toQAListener,
+                      )
+                  ),
+                  DelayLoadingViewLite(
+                    key: mainWhatKey,
+                      waiting: waitingMainWhat,
+                      child: MainWhatIsKCSView(deviceInfo: deviceInfo,)
+                  ),
+                  DelayLoadingViewLite(
+                    key: mainShinkanKey,
+                    waiting: waitingMainShinkan,
+                    child: MainShinkanView(deviceInfo: deviceInfo,),
+                  ),
+                  DelayLoadingViewLite(
+                    key: mainWorksKey,
+                      waiting: waitingMainWork,
+                      child: MainWorksView(deviceInfo: deviceInfo,)
+                  ),
+                  DelayLoadingViewLite(
+                    key: mainQAKey,
+                      waiting: waitingMainQA,
+                    child: MainQAView(deviceInfo: deviceInfo,),
+                  ),
+                  DelayLoadingViewLite(
+                    key: mainFooterKey,
+                    waiting: waitingMainFooter,
+                    child: MainFooter(deviceInfo: deviceInfo,),
+                  )
+                  /*
+                  Q＆A
+                  footer
+                   */
+                ],
+              ),
             ),
           );
         },
