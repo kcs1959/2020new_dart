@@ -4,7 +4,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 const TextStyle _h1 = TextStyle(
   fontFamily: "MPlus",
   fontWeight: FontWeight.w300,
-  fontSize: 96,
+  fontSize: 72,
   color: Colors.white,
   letterSpacing: -0.15
 );
@@ -19,13 +19,14 @@ const TextStyle _h1mobile = TextStyle(
 const TextStyle _normal = TextStyle(
     fontFamily: "MPlus",
     fontSize: 16,
-    color: Colors.white,
+    color: Color(0xDEFFFFFF),
+  height: 2.0,
   letterSpacing: 0.5
 );
 
 const TextStyle _h2 = TextStyle(
     fontFamily: "MPlus",
-    fontSize: 48,
+    fontSize: 40,
     color: Colors.white,
   letterSpacing: -0.5
 );

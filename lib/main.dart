@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kcs_2020_shinkan_web/CharacterPage/characterPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupPage.dart';
@@ -9,7 +10,12 @@ import 'package:kcs_2020_shinkan_web/WorksPage/worksPage.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/qaPage.dart';
 import 'mainPage.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  //debugPaintLayerBordersEnabled = true;
+  //debugRepaintRainbowEnabled = true;
+  runApp(MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

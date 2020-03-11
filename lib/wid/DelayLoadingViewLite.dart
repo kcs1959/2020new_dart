@@ -14,11 +14,15 @@ class DelayLoadingViewLite extends StatefulWidget {
 class DelayLoadingViewLiteState extends State<DelayLoadingViewLite> {
   @override
   Widget build(BuildContext context) {
-
+    /*
     return AnimatedOpacity(
         duration: const Duration(milliseconds: 0),
         opacity: widget.waiting ? 0 : 1,
         child: widget.child
+    );*/
+    return Opacity(
+      opacity: widget.waiting ? 0 : 1,
+      child: widget.child,
     );
     /*
     return Visibility(

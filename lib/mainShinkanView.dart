@@ -46,9 +46,12 @@ class MainShinkanView extends StatelessWidget {
                           "新型コロナウイルスの影響について",
                           style: BaseTextStyles.h4,
                         ),
-                        SelectableText(
-                          "当初予定していた4月2日から6日までの新歓オリエンテーションが中止となり慶應内での勧誘も全面禁止となっております。3月中旬の時点でまだ来年度の大学側の予定も分からないため詳細な情報を告知することが出来ません。お手数ですが公式LINE@やTwitterから最新情報をご確認ください。",
-                          style: BaseTextStyles.plain,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                          child: SelectableText(
+                            "当初予定していた4月2日から6日までの新歓オリエンテーションが中止となり慶應内での勧誘も全面禁止となっております。3月中旬の時点でまだ来年度の大学側の予定も分からないため詳細な情報を告知することが出来ません。お手数ですが公式LINE@やTwitterから最新情報をご確認ください。",
+                            style: BaseTextStyles.plain,
+                          ),
                         )
                       ],
                     ),

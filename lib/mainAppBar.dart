@@ -40,7 +40,7 @@ Widget mainAppBar(
         FlatButton(
           hoverColor: Colors.transparent,
           onPressed: toWhat,
-          child: Text("Introducing", style: menuTextStyle,),
+          child: Text("KCSって何?", style: menuTextStyle,),
         ).translucentOnHover,
         FlatButton(
           hoverColor: Colors.transparent,
@@ -137,7 +137,7 @@ class MainAppBarMobileState extends State<MainAppBarMobile> {
                         FlatButton(
                           hoverColor: Colors.transparent,
                           onPressed: widget.toWhat,
-                          child: Text("Introducing", style: menuTextStyle,),
+                          child: Text("KCSって何?", style: menuTextStyle,),
                         ).translucentOnHover,
                         FlatButton(
                           hoverColor: Colors.transparent,

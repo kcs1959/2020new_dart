@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:responsive_grid/responsive_grid.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 class MainWorksView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -24,9 +25,12 @@ class MainWorksView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text("2019年度作品集", style: BaseTextStyles.h1(deviceInfo),),
-              SelectableText(
-                "2019年度に部員が制作した作品たちです。一部は三田祭などで展示を行いました。",
-                style: BaseTextStyles.plain,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                child: SelectableText(
+                  "2019年度に部員が制作した作品たちです。一部は三田祭などで展示を行いました。",
+                  style: BaseTextStyles.plain,
+                ),
               ),
               ResponsiveGridRow(
                 children: works.map((work) {
@@ -47,7 +51,7 @@ class MainWorksView extends StatelessWidget {
                     title: Text("全ての作品を見る", style: BaseTextStyles.button,),
                     trailing: Icon(Icons.open_in_new, color: Color(0x99ffffff),)
                 ),
-              )
+              ).showCursorOnHover
             ],
           ),
         ),
@@ -94,23 +98,26 @@ class MainWorksView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(8.0),
       child: Container(
-        height: 200,
         child: Card(
           color: Color(0x17ffffff),
-          child: Row(
+          child: Column(
             children: <Widget>[
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    ListTile(
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 2,
+                    child: ListTile(
                       title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
                       subtitle: AutoSizeText(info.summary, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
                     ),
-                    Wrap(
-                      alignment: WrapAlignment.start,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
                       children: info.genres.map((genre) {
                         return Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(2.0),
                           child: Chip(
                               backgroundColor: Color(0xFF121212),
                               shape: RoundedRectangleBorder(
@@ -122,12 +129,12 @@ class MainWorksView extends StatelessWidget {
                         );
                       }).toList(),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               AspectRatio(
-                aspectRatio: 4/3,
-                  child: Image.asset(info.image, fit: BoxFit.cover,)
+                aspectRatio: 4/1,
+                  child: Image.asset(info.image, fit: BoxFit.fitWidth,)
               )
             ],
           ),

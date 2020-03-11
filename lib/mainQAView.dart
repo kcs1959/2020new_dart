@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/questions.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 class MainQAView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -27,9 +28,12 @@ class MainQAView extends StatelessWidget {
                 "よくある質問",
                 style: BaseTextStyles.h1(deviceInfo),
               ),
-              SelectableText(
-                "KCSに関して多く寄せられる疑問をまとめました。",
-                style: BaseTextStyles.plain,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                child: SelectableText(
+                  "KCSに関して多く寄せられる疑問をまとめました。",
+                  style: BaseTextStyles.plain,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(16.0),
@@ -49,7 +53,7 @@ class MainQAView extends StatelessWidget {
                   title: Text("全ての質問を見る", style: BaseTextStyles.button,),
                   trailing: Icon(Icons.open_in_new, color: Color(0x99ffffff),)
                 ),
-              )
+              ).showCursorOnHover
             ],
           ),
         ),

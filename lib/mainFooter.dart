@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
 
 class MainFooter extends StatelessWidget {
-  final DeviceInfo deviceInfo;
+  DeviceInfo deviceInfo;
 
   MainFooter({Key key, this.deviceInfo}): super(key: key);
 
@@ -76,60 +78,69 @@ class MainFooter extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Wrap(
-                alignment: WrapAlignment.start,
-                direction: Axis.horizontal,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                        child: Image.asset("image/twitterlogo.png", height: 48,)
-                    )
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("@kcs1959", style: BaseTextStyles.plain,),
-                  ),
-                ],
-              ),
-              Wrap(
-                alignment: WrapAlignment.start,
-                direction: Axis.horizontal,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      child: Image.asset("image/githublogo.png", height: 48,),
-                      backgroundColor: Colors.white,
+              InkWell(
+                onTap: Link.toTwitterKCS,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  direction: Axis.horizontal,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                          child: Image.asset("image/twitterlogo.png", height: 48,)
+                      )
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("github.com/kcs1959", style: BaseTextStyles.plain,),
-                  ),
-                ],
-              ),
-              Wrap(
-                alignment: WrapAlignment.start,
-                direction: Axis.horizontal,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      child: Image.asset("image/kcsdragonlogo.png", height: 48,),
-                      backgroundColor: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("@kcs1959", style: BaseTextStyles.plain,),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("kcs1959.jp", style: BaseTextStyles.plain,),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ).showCursorOnHover,
+              InkWell(
+                onTap: Link.toGitHubKCS,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  direction: Axis.horizontal,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        child: Image.asset("image/githublogo.png", height: 48,),
+                        backgroundColor: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("github.com/kcs1959", style: BaseTextStyles.plain,),
+                    ),
+                  ],
+                ),
+              ).showCursorOnHover,
+              InkWell(
+                onTap: Link.toKCS1959,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  direction: Axis.horizontal,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        child: Image.asset("image/kcsdragonlogo.png", height: 48,),
+                        backgroundColor: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("kcs1959.jp", style: BaseTextStyles.plain,),
+                    ),
+                  ],
+                ),
+              ).showCursorOnHover,
             ],
           ),
         ),
@@ -149,41 +160,41 @@ class MainFooter extends StatelessWidget {
             Navigator.of(context).pushNamed("/main");
           },
           child: Text("Top", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/groups");
           },
           child: Text("班紹介", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/schedule");
           },
           child: Text("年間スケジュール", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/character");
           },
           child: Text("キャラクター紹介", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: null,
           child: Text("新歓情報", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/works");
           },
           child: Text("作品集", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/questions");
           },
           child: Text("よくある質問", style: BaseTextStyles.button,),
-        ),
+        ).showCursorOnHover,
       ],
     );
   }
@@ -195,15 +206,29 @@ class MainFooter extends StatelessWidget {
           "Credit",
           style: BaseTextStyles.h4,
         ),
-        Image.asset("image/fastlogo.png", height: 100,),
-        Text("Fastriver_org", style: BaseTextStyles.plain,),
-        Text("Coding/Design", style: BaseTextStyles.subtitle1,),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset("image/orfevrelogo.jpg", height: 84,),
-        ),
-        Text("Yuuki Hyodo", style: BaseTextStyles.plain,),
-        Text("Design/Image", style: BaseTextStyles.subtitle1,),
+        InkWell(
+          onTap: Link.toTwitterFastriver,
+          child: Column(
+            children: <Widget>[
+              Image.asset("image/fastlogo.png", height: 100,),
+              Text("Fastriver_org", style: BaseTextStyles.plain,),
+              Text("Coding/Design", style: BaseTextStyles.subtitle1,),
+            ],
+          ),
+        ).showCursorOnHover,
+        InkWell(
+          onTap: Link.toTwitterOrfevre,
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("image/orfevrelogo.jpg", height: 84,),
+              ),
+              Text("Yuuki Hyodo", style: BaseTextStyles.plain,),
+              Text("Design/Image", style: BaseTextStyles.subtitle1,),
+            ],
+          ),
+        ).showCursorOnHover,
       ],
     );
   }

@@ -2,8 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 const TextStyle titleStyleA = TextStyle(
     fontSize: 150.0,
@@ -240,8 +241,8 @@ class MainTopPosterView extends StatelessWidget {
               right: 0,
               bottom: 0,
               child: GestureDetector(
-                onTap: _toTwitter,
-                  child: Image.asset("image/kcschann.png", fit: BoxFit.fitHeight)
+                onTap: Link.toTwitterKCS,
+                  child: Image.asset("image/kcschann.png", fit: BoxFit.fitHeight).showCursorOnHover
               )
           ),
           Positioned(
@@ -333,8 +334,8 @@ class MainTopPosterView extends StatelessWidget {
                   left: 8.0, right: 8.0, top: 16.0
                 ),
                 child: GestureDetector(
-                  onTap: _toTwitter,
-                    child: Image.asset("image/kcschann.png", fit: BoxFit.fitWidth)
+                  onTap: Link.toTwitterKCS,
+                    child: Image.asset("image/kcschann.png", fit: BoxFit.fitWidth).showCursorOnHover
                 ),
               ),
             ),
@@ -342,14 +343,5 @@ class MainTopPosterView extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-void _toTwitter() async {
-  const url = 'https://twitter.com/kcs1959';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
   }
 }
