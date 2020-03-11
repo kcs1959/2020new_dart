@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
@@ -92,38 +93,44 @@ class MainWorksView extends StatelessWidget {
   Widget workCardForMobile(WorkInfo info) {
     return Padding(
       padding: EdgeInsets.all(8.0),
-      child: Card(
-        color: Color(0x17ffffff),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: Column(
-                children: <Widget>[
-                  ListTile(
-                    title: Text(info.title, style: BaseTextStyles.h4,),
-                    subtitle: Text(info.summary, style: BaseTextStyles.subtitle1,),
-                  ),
-                  Wrap(
-                    alignment: WrapAlignment.start,
-                    children: info.genres.map((genre) {
-                      return Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Chip(
-                            backgroundColor: Color(0xFF121212),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                                side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
-                            ),
-                            label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ],
+      child: Container(
+        height: 200,
+        child: Card(
+          color: Color(0x17ffffff),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
+                      subtitle: AutoSizeText(info.summary, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+                    ),
+                    Wrap(
+                      alignment: WrapAlignment.start,
+                      children: info.genres.map((genre) {
+                        return Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Chip(
+                              backgroundColor: Color(0xFF121212),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                                  side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
+                              ),
+                              label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Image.asset(info.image, fit: BoxFit.fitHeight,)
-          ],
+              AspectRatio(
+                aspectRatio: 4/3,
+                  child: Image.asset(info.image, fit: BoxFit.cover,)
+              )
+            ],
+          ),
         ),
       ),
     );
