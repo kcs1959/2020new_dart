@@ -185,7 +185,9 @@ class MainTopPosterView extends StatelessWidget {
                 Positioned.fill(
                   child: topContentB(),
                 ),
-                MainAppBarMobile(),
+                MainAppBarMobile(
+                    toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA
+                ),
                 Positioned(
                   left: 0, right: 0, bottom: 0,
                   child: Container(
