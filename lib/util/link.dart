@@ -6,6 +6,9 @@ const String _TWITTER_ORFEVRE = "https://twitter.com/ChevalGrand_y_h";
 
 const String _GITHUB_KCS = "https://github.com/kcs1959";
 const String _HP_KCS = "https://kcs1959.jp/";
+const String _LINE_KCS = "https://lin.ee/AVumbCs";
+const String _PEING_KCS = "https://peing.net/ja/kcs1959?event=0";
+const String _MAIL_KCS = "mailto:kcs1959@gmail.com";
 
 class Link {
   static void toTwitterKCS() async {
@@ -26,6 +29,18 @@ class Link {
 
   static void toKCS1959() async {
     await _hyperLink(_HP_KCS);
+  }
+
+  static void toLineKCS() async {
+    await _hyperLink(_LINE_KCS);
+  }
+
+  static void toShitsumonBakoKCS() async {
+    await _hyperLink(_PEING_KCS);
+  }
+
+  static void toMailKCS() async {
+    await _hyperLink(_MAIL_KCS);
   }
 
   static Future<bool> _hyperLink(String url) async {

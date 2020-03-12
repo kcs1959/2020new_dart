@@ -31,6 +31,20 @@ const TextStyle _h2 = TextStyle(
   letterSpacing: -0.5
 );
 
+const TextStyle _h2character = TextStyle(
+  fontFamily: "Anzu",
+  fontSize: 60,
+  color: Colors.blue,
+  letterSpacing: -0.5
+);
+
+const TextStyle _plaincharacter = TextStyle(
+    fontFamily: "Anzu",
+    fontSize: 30,
+    color: Colors.blue,
+    letterSpacing: -0.5
+);
+
 const TextStyle _h4 = TextStyle(
   fontFamily: "MPlus",
   fontSize: 34,
@@ -61,6 +75,13 @@ const TextStyle _button = TextStyle(
   letterSpacing: 1.25,
 );
 
+const TextStyle _question = TextStyle(
+  fontSize: 30.0,
+  fontWeight: FontWeight.bold,
+  color: Color(0xDE90CAF9),
+  letterSpacing: 0.5
+);
+
 class BaseTextStyles {
   static TextStyle h1(DeviceInfo info) => info.device == Device.PC ? _h1 : _h1mobile;
   static TextStyle get h2 => _h2;
@@ -69,4 +90,39 @@ class BaseTextStyles {
   static TextStyle get plain => _normal;
   static TextStyle get qasummary => _qasummary;
   static TextStyle get button => _button;
+  static TextStyle get question => _question;
+
+  static TextStyle h1Tint(DeviceInfo info, {Color tint}) => tint == null
+      ? h1(info)
+      : h1(info).merge(TextStyle(color: tintColor(_h2.color, tint)));
+  static TextStyle h2Tint({Color tint}) => tint == null
+      ? _h2
+      : _h2.merge(TextStyle(color: tintColor(_h2.color, tint)));
+  static TextStyle h4Tint({Color tint}) => tint == null
+      ? _h4
+      : _h4.merge(TextStyle(color: tintColor(_h4.color, tint)));
+  static TextStyle plainTint({Color tint}) => tint == null
+      ? _normal
+      : _normal.merge(TextStyle(color: tintColor(_normal.color, tint)));
+  static TextStyle subtitle1Tint({Color tint}) => tint == null
+      ? _subTitle1
+      : _subTitle1.merge(TextStyle(color: tintColor(_subTitle1.color, tint)));
+  static TextStyle buttonTint({Color tint}) => tint == null
+      ? _button
+      : _button.merge(TextStyle(color: tintColor(_button.color, tint)));
+
+  static TextStyle get h2CharacterBlue => _h2character.merge(TextStyle(color: Colors.blue));
+  static TextStyle get h2CharacterRed => _h2character.merge(TextStyle(color: Colors.red));
+  static TextStyle get plainCharacterBlue => _plaincharacter.merge(TextStyle(color: Colors.blue));
+  static TextStyle get plainCharacterRed => _plaincharacter.merge(TextStyle(color: Colors.red));
+
+
+  static TextStyle appBarMenuText(Color color) => TextStyle(
+    color: color,
+    fontFamily: "MPlus"
+  );
+
+  static Color tintColor(Color from, Color tint) {
+    return Color((0xFF000000 & from.value) + (0x00FFFFFF & tint.value));
+  }
 }

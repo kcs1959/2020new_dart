@@ -10,6 +10,7 @@ class GroupPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    //final Groups argument =  ModalRoute.of(context).settings.arguments;
     return Scaffold(
       backgroundColor: Color(0xFF121212),
       body: LayoutBuilder(
@@ -18,7 +19,17 @@ class GroupPage extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SubAppBar(deviceInfo: deviceInfo,),
+                SubAppBar(
+                  deviceInfo: deviceInfo,
+                  title: Text(
+                    "班紹介",
+                    style: TextStyle(
+                        fontFamily: "CorporateLogo",
+                        color: Colors.white,
+                        fontSize: 40.0
+                    ),
+                  ),
+                ),
                 GroupContentView(deviceInfo: deviceInfo,),
                 MainFooter(deviceInfo: deviceInfo,)
               ],
@@ -28,4 +39,8 @@ class GroupPage extends StatelessWidget {
       ),
     );
   }
+}
+
+enum Groups {
+  AI, UNITY, WEB, BLENDER, DTM
 }

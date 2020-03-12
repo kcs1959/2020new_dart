@@ -10,16 +10,27 @@ class SchedulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF121212),
+      backgroundColor: Color(0xFFFFCC80),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints boxConstraints) {
           deviceInfo = DeviceInfo.measure(boxConstraints.biggest);
           return SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SubAppBar(deviceInfo: deviceInfo,),
+                SubAppBar(
+                  deviceInfo: deviceInfo,
+                  title: Text(
+                    "年間行事",
+                    style: TextStyle(
+                        fontFamily: "CorporateLogo",
+                        color: Color(0xFF1A237E),
+                        fontSize: 40.0
+                    ),
+                  ),
+                  menuColor: Color(0xFF1A237E),
+                ),
                 ScheduleContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo,)
+                MainFooter(deviceInfo: deviceInfo, tint: Color(0xFF1A237E),)
               ],
             ),
           );

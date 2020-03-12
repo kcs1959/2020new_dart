@@ -2,6 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 
 const TextStyle menuTextStyle = TextStyle(
   color: Colors.white70,
@@ -9,14 +10,18 @@ const TextStyle menuTextStyle = TextStyle(
 
 class SubAppBar extends StatefulWidget {
   final DeviceInfo deviceInfo;
+  final Color menuColor;
+  final Text title;
 
-  SubAppBar({Key key, this.deviceInfo}): super(key: key);
+  SubAppBar({Key key, this.deviceInfo, this.menuColor, this.title}): super(key: key);
 
   @override
   State<StatefulWidget> createState() => _SubAppBarState();
 }
 
 class _SubAppBarState extends State<SubAppBar> {
+  Color menuColor;
+  Text titleText;
 
   void toTop() {
     Navigator.of(context).pushNamed("/main");
@@ -44,6 +49,14 @@ class _SubAppBarState extends State<SubAppBar> {
   @override
   void initState() {
     super.initState();
+    menuColor = widget.menuColor ?? Colors.white70;
+    titleText = widget.title ?? Text(
+      "新歓",
+      style: TextStyle(
+          color: Colors.white,
+          fontSize: 40.0,
+          fontWeight: FontWeight.bold),
+    );
 
     _controller = ExpandableController();
 
@@ -66,22 +79,22 @@ class _SubAppBarState extends State<SubAppBar> {
       FlatButton(
         hoverColor: Colors.transparent,
         onPressed: toTop,
-        child: Text("Top", style: menuTextStyle,),
+        child: Text("Top", style: BaseTextStyles.appBarMenuText(menuColor),),
       ).translucentOnHover,
       FlatButton(
         hoverColor: Colors.transparent,
         onPressed: toShinkan,
-        child: Text("新歓情報", style: menuTextStyle,),
+        child: Text("新歓情報", style: BaseTextStyles.appBarMenuText(menuColor),),
       ).translucentOnHover,
       FlatButton(
         hoverColor: Colors.transparent,
         onPressed: toWorks,
-        child: Text("作品集", style: menuTextStyle,),
+        child: Text("作品集", style: BaseTextStyles.appBarMenuText(menuColor),),
       ).translucentOnHover,
       FlatButton(
         hoverColor: Colors.transparent,
         onPressed: toQA,
-        child: Text("質問集", style: menuTextStyle,),
+        child: Text("質問集", style: BaseTextStyles.appBarMenuText(menuColor),),
       ).translucentOnHover,
     ];
 
@@ -95,13 +108,7 @@ class _SubAppBarState extends State<SubAppBar> {
               padding: const EdgeInsets.all(8.0),
               child: Image.asset("image/kcslogo.png", fit: BoxFit.fitHeight,),
             ),
-            Text(
-              "新歓",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold),
-            ),
+            titleText
           ],
         ),
       ),
@@ -121,13 +128,7 @@ class _SubAppBarState extends State<SubAppBar> {
               child: Image.asset("image/kcslogo.png", fit: BoxFit.fitHeight,),
             ),
           ),
-          Text(
-            "新歓",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 40.0,
-                fontWeight: FontWeight.bold),
-          ),
+          titleText,
           Expanded(
             child: Align(
               alignment: Alignment.centerRight,

@@ -29,6 +29,10 @@ dependencies:
   auto_size_text: ^2.1.0
   responsive_grid: ^1.1.1
   url_launcher: ^5.4.2
+  clippy_flutter:
+    git:
+      url: git://github.com/organic-nailer/clippy_flutter.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +73,13 @@ flutter:
     - image/beyondthelimit.png
     - image/tsuratan.png
     - image/characters.jpg
+    - image/linelogo.png
+    - image/kcschann_standing.png
+    - image/groups/ai.jpg
+    - image/groups/blender.png
+    - image/groups/dtm.png
+    - image/groups/unity.jpg
+    - image/groups/web.jpg
 
   fonts:
     - family: CorporateLogo
@@ -82,6 +93,9 @@ flutter:
           weight: 400
         - asset: fonts/mplus_2p_bold.ttf
           weight: 700
+    - family: Anzu
+      fonts:
+        - asset: fonts/anzumoji.ttf
 
 
   # To add assets to your application, add an assets section, like this:
