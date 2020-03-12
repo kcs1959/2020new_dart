@@ -52,9 +52,11 @@ class QAContentView extends StatelessWidget {
                                     child: Text("Q"),
                                   ),
                                 ),
-                                Text(
-                                  question.question,
-                                  style: BaseTextStyles.question
+                                Expanded(
+                                  child: Text(
+                                    question.question,
+                                    style: BaseTextStyles.question
+                                  ),
                                 ),
                               ],
                             ),
@@ -69,9 +71,11 @@ class QAContentView extends StatelessWidget {
                                       child: Text("A"),
                                     ),
                                   ),
-                                  Text(
-                                    question.answer,
-                                    style: BaseTextStyles.plain
+                                  Expanded(
+                                    child: Text(
+                                      question.answer,
+                                      style: BaseTextStyles.plain
+                                    ),
                                   ),
                                 ],
                               ),
