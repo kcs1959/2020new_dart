@@ -32,7 +32,8 @@ class GroupUnityPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text("  Unityというゲームエンジンでゲーム製作を行っています。\n  ゲーム開発に興味がない人でもUnityを使えばスマホアプリやAR-VRを手軽に開発することが出来ます。未経験者向けの講習も予定しています。", style: BaseTextStyles.plain,),
                     ),
-                    FlatButton(
+                    RaisedButton(
+                      color: Color(0x61000000),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

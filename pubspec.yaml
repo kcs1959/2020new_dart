@@ -76,15 +76,15 @@ flutter:
     - image/kcsdragonlogo.png
     - image/fastlogo.png
     - image/orfevrelogo.jpg
-    - image/atsumori.png
-    - image/beyondthelimit.png
-    - image/tsuratan.png
+    - image/atsumori.jpg
+    - image/beyondthelimit.jpg
+    - image/tsuratan.jpg
     - image/characters.jpg
     - image/linelogo.png
     - image/kcschann_standing.png
     - image/groups/ai.jpg
-    - image/groups/blender.png
-    - image/groups/dtm.png
+    - image/groups/blender.jpg
+    - image/groups/dtm.jpg
     - image/groups/unity.jpg
     - image/groups/web.jpg
 

@@ -27,12 +27,13 @@ class GroupDTMPage extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Text("DTM班", style: BaseTextStyles.h1(deviceInfo),),
                     ),
-                    Image.asset("image/groups/dtm.png", fit: BoxFit.fitWidth,),
+                    Image.asset("image/groups/dtm.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text("  DTM班では各種DAW(Studio One, Cubase, Logicなどの作曲ソフト)を使って曲を作り、秋のM3でCDを売っています!\n  普段はDAWの使い方、音楽理論の講習会等行っています!!", style: BaseTextStyles.plain,),
                     ),
-                    FlatButton(
+                    RaisedButton(
+                      color: Color(0x61000000),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

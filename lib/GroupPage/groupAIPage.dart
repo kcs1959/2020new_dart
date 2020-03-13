@@ -33,7 +33,8 @@ class GroupAIPage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text("  AI班では、今流行りのAIとプログラミングの勉強をしています。矢上祭、三田祭に向けたAIを用いたアプリ開発も行っています。\n  KCS AI班独自の勉強会も行うので、初心者の方も大歓迎です。", style: BaseTextStyles.plain,),
                 ),
-                FlatButton(
+                RaisedButton(
+                  color: Color(0x61000000),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

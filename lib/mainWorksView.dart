@@ -145,12 +145,12 @@ class MainWorksView extends StatelessWidget {
 }
 
 var works = <WorkInfo>[
-  WorkInfo("つらたん", "つらいときにやるゲーム", "image/tsuratan.png", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
+  WorkInfo("つらたん", "つらいときにやるゲーム", "image/tsuratan.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
   //WorkInfo("クラタン", "スマホで自作の単語帳", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.TOOL]),
   //WorkInfo("年賀状", "出す気がない", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
-  WorkInfo("BEYOND THE LIMIT", "レジェンド先生作", "image/beyondthelimit.png", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME, WorkGenre.BLENDER]),
+  WorkInfo("BEYOND THE LIMIT", "レジェンド先生作", "image/beyondthelimit.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME, WorkGenre.BLENDER]),
   //WorkInfo("接待オセロ", "人にやさしいAI", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME, WorkGenre.AI]),
-  WorkInfo("熱盛", "三田祭で大人気！", "image/atsumori.png", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME]),
+  WorkInfo("熱盛", "三田祭で大人気！", "image/atsumori.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME]),
 ];
 
 class WorkInfo {
