@@ -10,6 +10,8 @@ const String _LINE_KCS = "https://lin.ee/AVumbCs";
 const String _PEING_KCS = "https://peing.net/ja/kcs1959?event=0";
 const String _MAIL_KCS = "mailto:kcs1959@gmail.com";
 
+const String _KCS_TUBER = "https://kcs1959.github.io/kcstuber/";
+
 class Link {
   static void toTwitterKCS() async {
     await _hyperLink(_TWITTER_KCS);
@@ -41,6 +43,10 @@ class Link {
 
   static void toMailKCS() async {
     await _hyperLink(_MAIL_KCS);
+  }
+
+  static void toKCSTuber() async {
+    await _hyperLink(_KCS_TUBER);
   }
 
   static Future<bool> _hyperLink(String url) async {

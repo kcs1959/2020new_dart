@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
@@ -38,6 +39,7 @@ class MainPageState extends State<MainPage> {
     super.initState();
     scrollController = ScrollController();
     scrollController.addListener(scrollListener);
+    analytics().logEvent("PAGE_MAIN", null);
   }
 
   void scrollListener() {

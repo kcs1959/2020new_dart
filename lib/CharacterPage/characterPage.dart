@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/CharacterPage/characterContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
@@ -9,6 +10,7 @@ class CharacterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analytics().logEvent("PAGE_CHARACTER", null);
     return Scaffold(
       backgroundColor: Color(0xFF00BCD4),
       body: LayoutBuilder(

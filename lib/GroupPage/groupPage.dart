@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupContentView.dart';
@@ -10,6 +11,7 @@ class GroupPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    analytics().logEvent("PAGE_GROUP", null);
     //final Groups argument =  ModalRoute.of(context).settings.arguments;
     return Scaffold(
       backgroundColor: Color(0xFF121212),

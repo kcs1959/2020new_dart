@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 
 class CharacterContentView extends StatelessWidget {
@@ -32,12 +33,26 @@ class CharacterContentView extends StatelessWidget {
                   child: Container(
                     child: Column(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "KCSちゃん",
-                            style: BaseTextStyles.h2CharacterBlue,
-                          ),
+                        Wrap(
+                          direction: Axis.horizontal,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "KCSちゃん",
+                                style: BaseTextStyles.h2CharacterBlue,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                Link.toKCSTuber();
+                              },
+                              icon: Icon(Icons.open_in_new),
+                              iconSize: 40,
+                              color: Colors.blue,
+                            )
+                          ],
                         ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),

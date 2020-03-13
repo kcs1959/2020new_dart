@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
@@ -9,6 +10,7 @@ class WorksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analytics().logEvent("PAGE_WORKS", null);
     return Scaffold(
       backgroundColor: Color(0xFF121212),
       body: LayoutBuilder(

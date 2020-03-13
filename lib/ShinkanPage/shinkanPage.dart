@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/ShinkanPage/shinkanContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
@@ -10,6 +11,7 @@ class ShinkanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analytics().logEvent("PAGE_SHINKAN", null);
     return Scaffold(
       backgroundColor: Color(0xFF121212),
       body: LayoutBuilder(

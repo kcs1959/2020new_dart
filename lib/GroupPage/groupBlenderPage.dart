@@ -1,3 +1,4 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
@@ -8,6 +9,7 @@ class GroupBlenderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analytics().logEvent("PAGE_BLENDER", null);
     return Scaffold(
         backgroundColor: Color(0x80FFFFFF),
         body: InkWell(
