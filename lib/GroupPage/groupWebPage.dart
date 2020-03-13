@@ -30,7 +30,7 @@ class GroupWebPage extends StatelessWidget {
                     Image.asset("image/groups/web.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Web班ではサイトの作り方から最新フレームワークの習得まで幅広い技術を勉強しています。Web技術は学習コストなどの理由から敬遠されがちですが これらは使いこなせれば非常に実用的なものです。KCSには経験者や同じ目標を持つ仲間の中で互助的に学ぶ環境があります。広く深いWebの世界に触れてみませんか?", style: BaseTextStyles.plain,),
+                      child: Text("Web班ではサイトの作り方から最新フレームワークの習得まで幅広い技術を勉強しています。\n  Web技術は学習コストなどの理由から敬遠されがちですが これらは使いこなせれば非常に実用的なものです。KCSには経験者や同じ目標を持つ仲間の中で互助的に学ぶ環境があります。\n  広く深いWebの世界に触れてみませんか?", style: BaseTextStyles.plain,),
                     ),
                     FlatButton(
                       onPressed: () {

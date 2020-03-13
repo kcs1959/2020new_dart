@@ -51,7 +51,7 @@ class MainQAView extends StatelessWidget {
                 },
                 child: ListTile(
                   title: Text("全ての質問を見る", style: BaseTextStyles.button,),
-                  trailing: Icon(Icons.open_in_new, color: Color(0x99ffffff),)
+                  trailing: Icon(Icons.call_made, color: Color(0x99ffffff),)
                 ),
               ).showCursorOnHover
             ],

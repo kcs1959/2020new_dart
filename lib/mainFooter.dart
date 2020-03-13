@@ -158,7 +158,7 @@ class MainFooter extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushNamed("/schedule");
           },
-          child: Text("年間スケジュール", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("年間行事", style: BaseTextStyles.buttonTint(tint: tint),),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
@@ -167,7 +167,9 @@ class MainFooter extends StatelessWidget {
           child: Text("キャラクター紹介", style: BaseTextStyles.buttonTint(tint: tint),),
         ).showCursorOnHover,
         FlatButton(
-          onPressed: null,
+          onPressed: () {
+            Navigator.of(context).pushNamed("/shinkan");
+          },
           child: Text("新歓情報", style: BaseTextStyles.buttonTint(tint: tint),),
         ).showCursorOnHover,
         FlatButton(

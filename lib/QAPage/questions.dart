@@ -25,7 +25,7 @@ const _questionsList = <QAndA>[
   ),
   const QAndA(
     "先輩にプログラミングの相談はできますか？",
-    "できます！　SlackではOBも含めて情報交換が盛んに行われています。Twitterでも気軽にご相談ください！"
+    "できます！　KCSではOBも含めて情報交換が盛んに行われています。Twitterでも気軽にご相談ください！"
   ),
   const QAndA(
     "競技プログラミングをやっている人はいますか？",

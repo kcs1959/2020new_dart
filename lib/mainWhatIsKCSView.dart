@@ -91,7 +91,7 @@ class MainWhatIsKCSView extends StatelessWidget {
                               Expanded(
                                 child: Text("班紹介", style: BaseTextStyles.h2,),
                               ),
-                              Icon(Icons.open_in_new, color: Color(0x99ffffff),)
+                              Icon(Icons.call_made, color: Color(0x99ffffff),)
                             ],
                           ),
                         ),
@@ -104,7 +104,7 @@ class MainWhatIsKCSView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                 child: SelectableText(
-                  "こんにちは！　Keio Computer Society(通称:KCS)です。KCSは1959年から活動している日本最古のコンピュータサークルで、慶應最大規模の技術系サークルです。現在は主にAI、Unity、Blender、DTM、Webの5班でそれぞれに特化した活動を行っています。基本方針は「パソコン使って全部やる」。そのため部員は班だけでなくコンピュータを用いた幅広い活動をしています。レベルは様々で、基礎的な話から研究レベルまでやっています。また独自の講習会や勉強会・輪講会などを多く開催しており、部員同士の技術の交流も盛んです。",
+                  "  こんにちは！　Keio Computer Society(通称:KCS)です。\n  KCSは1959年から活動している日本最古のコンピュータサークルで、慶應最大規模の技術系サークルです。基本方針は「パソコン使って全部やる」。\n  現在は主にAI、Unity、Blender、DTM、Webの5班でそれぞれに特化した活動を行っています。部員は班活動だけでなく、幅広い分野で基礎から研究レベルまで様々な活動をしています。また独自の講習会や勉強会・輪講会などを多く開催しており、部員同士の技術の交流も盛んです。",
                   style: BaseTextStyles.plain,
                 ),
               ),

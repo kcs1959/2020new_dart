@@ -195,7 +195,7 @@ Widget linkCard(String title, String subtitle, Widget image, VoidCallback linkTo
             ),
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.call_made, color: Color(0x61FFFFFF),),
+              child: Icon(Icons.open_in_new, color: Color(0x61FFFFFF),),
             )
           ],
         ),

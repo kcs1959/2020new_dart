@@ -31,7 +31,7 @@ class GroupAIPage extends StatelessWidget {
                 Image.asset("image/groups/ai.jpg", fit: BoxFit.fitWidth,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("AI班では、今流行りのとプログラミングの勉強をしています。矢上祭、三田祭に向けたAIを用いたアプリ開発も行っています。KCSAI班独自の勉強会も行うので、初心者の方も大歓迎です。", style: BaseTextStyles.plain,),
+                  child: Text("  AI班では、今流行りのAIとプログラミングの勉強をしています。矢上祭、三田祭に向けたAIを用いたアプリ開発も行っています。\n  KCS AI班独自の勉強会も行うので、初心者の方も大歓迎です。", style: BaseTextStyles.plain,),
                 ),
                 FlatButton(
                   onPressed: () {

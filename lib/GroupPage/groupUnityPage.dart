@@ -30,7 +30,7 @@ class GroupUnityPage extends StatelessWidget {
                     Image.asset("image/groups/unity.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Unityというゲームエンジンでゲーム製作を行っています。ゲーム開発に興味がない人でもUnityを使えばスマホアプリやAR-VRを手軽に開発することが出来ます。未経験者向けの講習も予定しています。", style: BaseTextStyles.plain,),
+                      child: Text("  Unityというゲームエンジンでゲーム製作を行っています。\n  ゲーム開発に興味がない人でもUnityを使えばスマホアプリやAR-VRを手軽に開発することが出来ます。未経験者向けの講習も予定しています。", style: BaseTextStyles.plain,),
                     ),
                     FlatButton(
                       onPressed: () {
