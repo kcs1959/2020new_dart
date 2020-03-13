@@ -108,6 +108,38 @@ class MainWhatIsKCSView extends StatelessWidget {
                   style: BaseTextStyles.plain,
                 ),
               ),
+              Text(
+                "基本情報",
+                style: BaseTextStyles.h2,
+              ),
+              ListTile(
+                title: Text("概要", style: BaseTextStyles.h4,),
+                subtitle: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("慶應義塾大学公認団体 独立団体 Computer Society", style: BaseTextStyles.plain),
+                ),
+              ),
+              ListTile(
+                title: Text("会員", style: BaseTextStyles.h4,),
+                subtitle: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("55名", style: BaseTextStyles.plain,),
+                ),
+              ),
+              ListTile(
+                title: Text("活動場所", style: BaseTextStyles.h4,),
+                subtitle: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("日吉キャンパス塾生会館213号室/その他日吉・矢上内教室", style: BaseTextStyles.plain,),
+                ),
+              ),
+              ListTile(
+                title: Text("活動日/時間", style: BaseTextStyles.h4,),
+                subtitle: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("不定(各活動の参加者で調整)", style: BaseTextStyles.plain,),
+                ),
+              ),
               ResponsiveGridRow(
                 children: [/*
                   ResponsiveGridCol(

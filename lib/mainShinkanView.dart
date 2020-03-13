@@ -1,8 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/QAPage/qaContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
 
 class MainShinkanView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -56,6 +58,15 @@ class MainShinkanView extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+              ),
+              Center(
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  alignment: WrapAlignment.center,
+                  children: <Widget>[
+                    linkCard("LINE@", "新歓情報", Image.asset("image/linelogo.png", height: 48), Link.toLineKCS),
+                  ],
                 ),
               )
               /*

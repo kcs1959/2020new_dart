@@ -40,7 +40,13 @@ class MainQAView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: Questions.getList.getRange(0, 3).map((qa) {
-                    return Text("Q. ${qa.question}", style: BaseTextStyles.qasummary,);
+                    return ListTile(
+                        title: Text("Q. ${qa.question}", style: BaseTextStyles.qasummary,),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text("A. ${qa.answer}", style: BaseTextStyles.plain,),
+                      ),
+                    );
                   }).toList(),
                 ),
               ),
