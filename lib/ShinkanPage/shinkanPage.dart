@@ -22,7 +22,7 @@ class ShinkanPage extends StatelessWidget {
               children: <Widget>[
                 SubAppBar(deviceInfo: deviceInfo,),
                 ShinkanContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo,)
+                MainFooter(deviceInfo: deviceInfo,shareText: "KCS新歓特設ページ2020 -新歓情報 \n https://kcs1959.github.io/2020new/#/shinkan",)
               ],
             ),
           );
