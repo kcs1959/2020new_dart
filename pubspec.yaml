@@ -86,6 +86,7 @@ flutter:
     - image/groups/unity.jpg
     - image/groups/web.jpg
     - image/icon_qrcode.png
+    - image/schedule/
 
   fonts:
     - family: CorporateLogo
