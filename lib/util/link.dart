@@ -12,6 +12,9 @@ const String _MAIL_KCS = "mailto:kcs1959@gmail.com";
 
 const String _KCS_TUBER = "https://kcs1959.github.io/kcstuber/";
 
+const String _SHARE_TWITTER = "https://twitter.com/intent/tweet?text=";
+const String _SHARE_LINE = "https://social-plugins.line.me/lineit/share?url=";
+
 class Link {
   static void toTwitterKCS() async {
     await _hyperLink(_TWITTER_KCS);
@@ -47,6 +50,18 @@ class Link {
 
   static void toKCSTuber() async {
     await _hyperLink(_KCS_TUBER);
+  }
+
+  static void shareTwitter(String text) async {
+    var encodedText = Uri.encodeComponent(text);
+    var link = _SHARE_TWITTER + encodedText;
+    await _hyperLink(link);
+  }
+
+  static void shareLINE(String text) async {
+    var encodedText = Uri.encodeComponent(text);
+    var link = _SHARE_LINE + encodedText;
+    await _hyperLink(link);
   }
 
   static Future<bool> _hyperLink(String url) async {

@@ -97,6 +97,7 @@ class GroupContentView extends StatelessWidget {
                                 style: headerText,
                                 overflow: TextOverflow.visible,
                                 maxLines: 1,
+                                textScaleFactor: 0.9,
                               ),
                             )
                           ],
@@ -141,6 +142,7 @@ class GroupContentView extends StatelessWidget {
                                     style: headerText,
                                     overflow: TextOverflow.visible,
                                     maxLines: 1,
+                                    textScaleFactor: 0.9,
                                   ),
                                 ),
                               ),
@@ -187,6 +189,7 @@ class GroupContentView extends StatelessWidget {
                                     style: headerText,
                                     overflow: TextOverflow.visible,
                                     maxLines: 1,
+                                    textScaleFactor: 0.9,
                                   ),
                                 ),
                               ),
@@ -233,6 +236,7 @@ class GroupContentView extends StatelessWidget {
                                     style: headerText,
                                     overflow: TextOverflow.fade,
                                     maxLines: 1,
+                                    textScaleFactor: 0.9,
                                   ),
                                 ),
                               ),
@@ -279,6 +283,7 @@ class GroupContentView extends StatelessWidget {
                                     style: headerText,
                                     overflow: TextOverflow.clip,
                                     maxLines: 1,
+                                    textScaleFactor: 0.9,
                                   ),
                                 ),
                               ),
@@ -334,6 +339,7 @@ class GroupContentView extends StatelessWidget {
                                 style: headerText,
                                 overflow: TextOverflow.visible,
                                 maxLines: 1,
+                                textScaleFactor: 0.95,
                               ),
                             )
                           ],
@@ -376,6 +382,7 @@ class GroupContentView extends StatelessWidget {
                                   style: headerText,
                                   overflow: TextOverflow.visible,
                                   maxLines: 1,
+                                  textScaleFactor: 0.95,
                                 ),
                               ),
                             )
@@ -419,6 +426,7 @@ class GroupContentView extends StatelessWidget {
                                   style: headerText,
                                   overflow: TextOverflow.visible,
                                   maxLines: 1,
+                                  textScaleFactor: 0.95,
                                 ),
                               ),
                             )
@@ -462,6 +470,7 @@ class GroupContentView extends StatelessWidget {
                                   style: headerText,
                                   overflow: TextOverflow.fade,
                                   maxLines: 1,
+                                  textScaleFactor: 0.95,
                                 ),
                               ),
                             )
@@ -505,6 +514,7 @@ class GroupContentView extends StatelessWidget {
                                   style: headerText,
                                   overflow: TextOverflow.clip,
                                   maxLines: 1,
+                                  textScaleFactor: 0.95,
                                 ),
                               ),
                             )

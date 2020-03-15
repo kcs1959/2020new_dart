@@ -222,7 +222,7 @@ class MainPageState extends State<MainPage> {
                   DelayLoadingViewLite(
                     key: mainFooterKey,
                     waiting: waitingMainFooter,
-                    child: MainFooter(deviceInfo: deviceInfo,),
+                    child: MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -Top \n https://kcs1959.github.io/2020new/",),
                   )
                   /*
                   Q＆A

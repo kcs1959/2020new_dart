@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kcs_2020_shinkan_web/CharacterPage/characterPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupAIPage.dart';
@@ -13,22 +12,15 @@ import 'package:kcs_2020_shinkan_web/SchedulePage/schedulePage.dart';
 import 'package:kcs_2020_shinkan_web/ShinkanPage/shinkanPage.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksPage.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/qaPage.dart';
+import 'package:kcs_2020_shinkan_web/initFirebase.dart';
 import 'mainPage.dart';
 
-void main() async {
-  await DotEnv().load('.env');
+void main() {
   //debugPaintLayerBordersEnabled = true;
   //debugRepaintRainbowEnabled = true;
   runApp(MyApp());
 
-  initializeApp(
-      apiKey: DotEnv().env["FIREBASE_API_KEY"],
-      authDomain: "kcs2020new.firebaseapp.com",
-      databaseURL: "https://kcs2020new.firebaseio.com",
-      projectId: "kcs2020new",
-      appId: DotEnv().env["FIREBASE_APP_ID"],
-      measurementId: DotEnv().env["FIREBASE_MEASUREMENT_ID"],
-      storageBucket: "kcs2020new.appspot.com",);
+  initFirebase();
   
   //analytics();
   //FirebaseAuth.instance.signInAnonymously();

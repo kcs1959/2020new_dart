@@ -21,7 +21,7 @@ class WorksPage extends StatelessWidget {
               children: <Widget>[
                 SubAppBar(deviceInfo: deviceInfo,),
                 WorksContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo,)
+                MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -作品集 \n https://kcs1959.github.io/2020new/#/works",)
               ],
             ),
           );

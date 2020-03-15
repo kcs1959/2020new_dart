@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
+import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
@@ -9,8 +11,9 @@ import 'package:kcs_2020_shinkan_web/util/link.dart';
 class MainFooter extends StatelessWidget {
   DeviceInfo deviceInfo;
   Color tint;
+  String shareText;
 
-  MainFooter({Key key, this.deviceInfo, this.tint}): super(key: key);
+  MainFooter({Key key, this.deviceInfo, this.tint, this.shareText}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,8 @@ class MainFooter extends StatelessWidget {
           child: deviceInfo.device == Device.PC
             ? Column(
               children: <Widget>[
+                shareView(context, false),
+                Divider(color: Color(0x38FFFFFF), thickness: 2.0,),
                 Wrap(
                 direction: Axis.horizontal,
                   alignment: WrapAlignment.center,
@@ -41,6 +46,8 @@ class MainFooter extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                shareView(context, true),
+                Divider(color: Color(0x38ffffff), thickness: 2,),
                 siteMap(context),
                 Divider(color: Color(0x61ffffff), thickness: 2,),
                 credit(),
@@ -133,6 +140,102 @@ class MainFooter extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget shareView(context, bool isMobile) {
+    if(shareText == null) return Container();
+    var children = [
+      Padding(
+        padding: EdgeInsets.all(8.0),
+        child: AutoSizeText(
+          "ページをシェアしよう",
+          style: BaseTextStyles.h4Tint(tint: tint),
+        ),
+      ),
+      Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          InkWell(
+            onTap: () {
+              analytics().logEvent("SHARE_TWITTER", null);
+              Link.shareTwitter(shareText);
+            },
+            child: Image.asset("image/twitterlogo.png", height: 40,),
+          ).showCursorOnHover,
+          InkWell(
+            onTap: () {
+              analytics().logEvent("SHARE_LINE", null);
+              Link.shareLINE(shareText);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset("image/linelogo.png", height: 24,),
+            ),
+          ).showCursorOnHover,
+          InkWell(
+              onTap: () {
+                analytics().logEvent("SHARE_QR", null);
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        backgroundColor: Color(0xFF292929),
+                        title: Text(
+                          "共有する",
+                          style: BaseTextStyles.h4,
+                        ),
+                        content: SingleChildScrollView(
+                          child: Column(
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: SelectableText(
+                                          shareText,
+                                          style: BaseTextStyles.plain,
+                                        ),
+                                      )
+                                  ),
+                                ],
+                              ),
+                              Image.network("https://chart.apis.google.com/chart?chs=450x450&cht=qr&chl=" + Uri.encodeComponent(shareText))
+                            ],
+                          ),
+                        ),
+                        actions: <Widget>[
+                          OutlineButton(
+                              child: Text(
+                                "閉じる",
+                                style: BaseTextStyles.button,
+                              ),
+                              onPressed: () => Navigator.pop(context)
+                          ).showCursorOnHover
+                        ],
+                      );
+                    }
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("image/icon_qrcode.png", height: 24,),
+              )
+          ).showCursorOnHover,
+        ],
+      ),
+    ];
+    return isMobile
+        ? Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: children,
+        )
+        : Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: children
+        );
   }
 
   Widget siteMap(context) {
