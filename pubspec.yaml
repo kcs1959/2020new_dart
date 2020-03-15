@@ -57,8 +57,8 @@ flutter:
 
   assets:
     - image/kcsdragon.png
-    - image/uzuka.jpg
-    - image/uzuka_rough.jpg
+    - image/yuzuka.jpg
+    - image/yuzuka_rough.jpg
     - image/kcschann.png
     - image/topbackground.jpg
     - image/top_ai.png
@@ -83,7 +83,7 @@ flutter:
     - image/groups/ai.jpg
     - image/groups/blender.jpg
     - image/groups/dtm.jpg
-    - image/groups/unity.jpg
+    - image/groups/yunity.jpg
     - image/groups/web.jpg
     - image/icon_qrcode.png
     - image/schedule/

@@ -27,7 +27,7 @@ class GroupUnityPage extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Text("Unity班", style: BaseTextStyles.h1(deviceInfo),),
                     ),
-                    Image.asset("image/groups/unity.jpg", fit: BoxFit.fitWidth,),
+                    Image.asset("image/groups/yunity.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text("  Unityというゲームエンジンでゲーム製作を行っています。\n  ゲーム開発に興味がない人でもUnityを使えばスマホアプリやAR-VRを手軽に開発することが出来ます。未経験者向けの講習も予定しています。", style: BaseTextStyles.plain,),
