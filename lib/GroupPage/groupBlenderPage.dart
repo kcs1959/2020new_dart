@@ -30,7 +30,8 @@ class GroupBlenderPage extends StatelessWidget {
                     Image.asset("image/groups/blender.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("  3Dモデルや3DCGが作れるBlenderというソフトを使って製作しています。", style: BaseTextStyles.plain,),
+                      child: Container(),
+                      //child: Text("  3Dモデルや3DCGが作れるBlenderというソフトを使って製作しています。", style: BaseTextStyles.plain,),
                     ),
                     RaisedButton(
                       color: Color(0x61000000),
