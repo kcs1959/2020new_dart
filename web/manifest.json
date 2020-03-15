@@ -1,21 +1,21 @@
 {
-    "name": "kcs_2020_shinkan_web",
-    "short_name": "kcs_2020_shinkan_web",
+    "name": "KCS新歓2020",
+    "short_name": "KCS新歓2020",
     "start_url": ".",
-    "display": "minimal-ui",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter application.",
+    "display": "standalone",
+    "background_color": "#4CAF50",
+    "theme_color": "#4CAF50",
+    "description": "Keio Computer Society 2020新歓特設ページです！慶應最大の公認技術系サークルであるKCSではAIからWeb,ゲーム,楽曲製作まで幅広い活動をしています! 自由な雰囲気で自分の興味のある活動ができます!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "./icons/Icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "./icons/Icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
