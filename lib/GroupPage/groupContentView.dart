@@ -237,6 +237,7 @@ class GroupContentView extends StatelessWidget {
                                     overflow: TextOverflow.fade,
                                     maxLines: 1,
                                     textScaleFactor: 0.9,
+                                    softWrap: false,
                                   ),
                                 ),
                               ),
@@ -301,7 +302,7 @@ class GroupContentView extends StatelessWidget {
       );
     }
     else {
-      final contentHeight = deviceInfo.size.height / 5;
+      final contentHeight = (deviceInfo.size.height - 60) / 5;
       final diagonalHeight = contentHeight * diagonalRatio;
       return Container(
         width: deviceInfo.size.width,
