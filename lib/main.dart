@@ -46,15 +46,15 @@ class MyAppState extends State<MyApp> {
       title: 'KCS::Keio Computer Society 新歓特設サイト',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: "Noto Sans JP",
+        //fontFamily: "Noto Sans JP",
       ),
-        localizationsDelegates: [
+        /*localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: [
           Locale('ja', 'JP'),
-        ],
+        ],*/
       routes: {
         "/main" :     (_) => new MainPage(),
         "/questions": (_) => new QAPage(),

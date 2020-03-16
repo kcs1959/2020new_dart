@@ -112,7 +112,7 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
         title: "新歓合宿",
         content: "湯河原温泉にて1泊2日の合宿をしました。\n卓球やカラオケ、足湯などレクリエーションを通じて新入生との親睦を深めました。",
         images: [
-          Image.asset("image/schedule/spring_camp1.jpg"),
+          //Image.asset("image/schedule/spring_camp1.jpg"),
           Image.asset("image/schedule/spring_camp2.jpg"),
           Image.asset("image/schedule/spring_camp3.jpg"),
           Image.asset("image/schedule/spring_camp4.jpg")

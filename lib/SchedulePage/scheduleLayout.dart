@@ -66,7 +66,7 @@ class _ScheduleLayoutState extends State<ScheduleLayout> {
             ],
           ),
           Expanded(
-            child: Row(
+            child: widget.images.length == 0 ? Center(child: Text("No Image", style: BaseTextStyles.plain,),) : Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -20,7 +20,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="KCS新歓2020">
-  <link rel="apple-touch-icon" href="/icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/Icon-192.png">
 
   <!-- twitter -->
   <meta name="twitter:card" content="summary" />
@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 
   <title>KCS新歓2020</title>
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" type="text/css" href="splash.css"/>
 </head>
 <body id="app-container">
@@ -56,7 +56,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/flutter_service_worker.js');
+        navigator.serviceWorker.register('./flutter_service_worker.js');
       });
     }
   </script>
