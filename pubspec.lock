@@ -94,6 +94,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.2"
+  expanded_grid:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "06bcd0b2058d419db368ddd49938fe36a101abe0"
+      url: "git://github.com/organic-nailer/expanded_grid.git"
+    source: git
+    version: "0.0.1"
   fb_auth:
     dependency: "direct main"
     description:

@@ -38,6 +38,10 @@ dependencies:
     git:
       url: git://github.com/organic-nailer/clippy_flutter.git
       ref: master
+  expanded_grid:
+    git:
+      url: git://github.com/organic-nailer/expanded_grid.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
