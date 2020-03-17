@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/SchedulePage/scheduleLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class ScheduleContentView extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -51,7 +52,7 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
                   "Computer Society\n年間行事 2019",
                   textAlign: TextAlign.center,
                   style: BaseTextStyles.h1Tint(widget.deviceInfo, tint: Color(0xFF1A237E)),
-                ),
+                ).safeText(),
                 IconButton(
                   //onPressed: null,
                   onPressed: () {
@@ -221,7 +222,7 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("NEXT", style: BaseTextStyles.button,),
+                        Text("NEXT", style: BaseTextStyles.button,).safeText(),
                         Icon(Icons.chevron_right, color: Colors.white60,),
                       ],
                     ),
@@ -261,7 +262,7 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(Icons.chevron_left, color: Colors.white60,),
-                        Text("PREV", style: BaseTextStyles.button,),
+                        Text("PREV", style: BaseTextStyles.button,).safeText(),
                       ],
                     ),
                   ),

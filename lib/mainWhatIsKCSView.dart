@@ -4,6 +4,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainWhatIsKCSView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -27,7 +28,7 @@ class MainWhatIsKCSView extends StatelessWidget {
               Text(
                 "KCSって何?",
                 style: BaseTextStyles.h1(deviceInfo),
-              ),
+              ).safeText(),
               Padding(
                 padding: EdgeInsets.all(32),
                 child: Center(
@@ -89,7 +90,7 @@ class MainWhatIsKCSView extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               Expanded(
-                                child: Text("班紹介", style: BaseTextStyles.h2,),
+                                child: Text("班紹介", style: BaseTextStyles.h2,).safeText(),
                               ),
                               Icon(Icons.call_made, color: Color(0x99ffffff),)
                             ],
@@ -111,64 +112,70 @@ class MainWhatIsKCSView extends StatelessWidget {
               Text(
                 "基本情報",
                 style: BaseTextStyles.h2,
-              ),
+                textAlign: TextAlign.center,
+              ).safeText(),
               ListTile(
-                title: Text("概要", style: BaseTextStyles.h4,),
+                title: Text(
+                  "概要",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("慶應義塾大学公認団体 独立団体 Computer Society", style: BaseTextStyles.plain),
+                  child: Text(
+                      "慶應義塾大学公認団体 独立団体 Computer Society",
+                      style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("会員", style: BaseTextStyles.h4,),
+                title: Text(
+                  "会員",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("55名", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "55名",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("活動場所", style: BaseTextStyles.h4,),
+                title: Text(
+                  "活動場所",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("日吉キャンパス塾生会館213号室/その他日吉・矢上内教室", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "日吉キャンパス塾生会館213号室/その他日吉・矢上内教室",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("活動日/時間", style: BaseTextStyles.h4,),
+                title: Text(
+                  "活動日/時間",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("不定(各活動の参加者で調整)", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "不定(各活動の参加者で調整)",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ResponsiveGridRow(
-                children: [/*
-                  ResponsiveGridCol(
-                    lg: 12,
-                    md: 6,
-                    sm: 12,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Card(
-                        color: Color(0x17ffffff),
-                        child: Column(
-                          children: <Widget>[
-                            Image.asset("image/group_tekitou.png", fit: BoxFit.fitWidth,),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Text("班紹介", style: BaseTextStyles.h2,),
-                                  ),
-                                  Icon(Icons.open_in_new, color: Color(0x99ffffff),)
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),*/
+                children: [
                   ResponsiveGridCol(
                     lg: 6,
                     md: 6,

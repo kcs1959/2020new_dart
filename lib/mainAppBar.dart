@@ -2,6 +2,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 const TextStyle menuTextStyle = TextStyle(
   color: Colors.white70,
@@ -30,7 +31,7 @@ Widget mainAppBar(
                   color: Colors.white,
                   fontSize: 40.0,
                   fontWeight: FontWeight.bold),
-            ),
+            ).safeText(),
           ],
         ),
       ),
@@ -40,22 +41,22 @@ Widget mainAppBar(
         FlatButton(
           hoverColor: Colors.transparent,
           onPressed: toWhat,
-          child: Text("KCSって何?", style: menuTextStyle,),
+          child: Text("KCSって何?", style: menuTextStyle,).safeText(),
         ).translucentOnHover,
         FlatButton(
           hoverColor: Colors.transparent,
           onPressed: toShinkan,
-          child: Text("新歓情報", style: menuTextStyle,),
+          child: Text("新歓情報", style: menuTextStyle,).safeText(),
         ).translucentOnHover,
         FlatButton(
           hoverColor: Colors.transparent,
           onPressed: toWork,
-          child: Text("作品集", style: menuTextStyle,),
+          child: Text("作品集", style: menuTextStyle,).safeText(),
         ).translucentOnHover,
         FlatButton(
           hoverColor: Colors.transparent,
           onPressed: toQA,
-          child: Text("よくある質問", style: menuTextStyle,),
+          child: Text("よくある質問", style: menuTextStyle,).safeText(),
         ).translucentOnHover,
       ],
     ),
@@ -137,22 +138,22 @@ class MainAppBarMobileState extends State<MainAppBarMobile> {
                         FlatButton(
                           hoverColor: Colors.transparent,
                           onPressed: widget.toWhat,
-                          child: Text("KCSって何?", style: menuTextStyle,),
+                          child: Text("KCSって何?", style: menuTextStyle,).safeText(),
                         ).translucentOnHover,
                         FlatButton(
                           hoverColor: Colors.transparent,
                           onPressed: widget.toShinkan,
-                          child: Text("新歓情報", style: menuTextStyle,),
+                          child: Text("新歓情報", style: menuTextStyle,).safeText(),
                         ).translucentOnHover,
                         FlatButton(
                           hoverColor: Colors.transparent,
                           onPressed: widget.toWork,
-                          child: Text("作品集", style: menuTextStyle,),
+                          child: Text("作品集", style: menuTextStyle,).safeText(),
                         ).translucentOnHover,
                         FlatButton(
                           hoverColor: Colors.transparent,
                           onPressed: widget.toQA,
-                          child: Text("よくある質問", style: menuTextStyle,),
+                          child: Text("よくある質問", style: menuTextStyle,).safeText(),
                         ).translucentOnHover,
                       ],
                     ),

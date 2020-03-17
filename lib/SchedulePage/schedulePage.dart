@@ -4,6 +4,7 @@ import 'package:kcs_2020_shinkan_web/SchedulePage/scheduleContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class SchedulePage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -28,7 +29,7 @@ class SchedulePage extends StatelessWidget {
                         color: Color(0xFF1A237E),
                         fontSize: 40.0
                     ),
-                  ),
+                  ).safeText(),
                   menuColor: Color(0xFF1A237E),
                 ),
                 ScheduleContentView(deviceInfo: deviceInfo,),

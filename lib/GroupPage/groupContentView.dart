@@ -12,6 +12,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 import 'package:kcs_2020_shinkan_web/wid/scaleOnHover.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 const TextStyle headerText = TextStyle(
     fontSize: 300.0,
@@ -98,7 +99,7 @@ class GroupContentView extends StatelessWidget {
                                 overflow: TextOverflow.visible,
                                 maxLines: 1,
                                 textScaleFactor: 0.9,
-                              ),
+                              ).safeText(),
                             )
                           ],
                         ),
@@ -143,7 +144,7 @@ class GroupContentView extends StatelessWidget {
                                     overflow: TextOverflow.visible,
                                     maxLines: 1,
                                     textScaleFactor: 0.9,
-                                  ),
+                                  ).safeText(),
                                 ),
                               ),
                             )
@@ -190,7 +191,7 @@ class GroupContentView extends StatelessWidget {
                                     overflow: TextOverflow.visible,
                                     maxLines: 1,
                                     textScaleFactor: 0.9,
-                                  ),
+                                  ).safeText(),
                                 ),
                               ),
                             )
@@ -238,7 +239,7 @@ class GroupContentView extends StatelessWidget {
                                     maxLines: 1,
                                     textScaleFactor: 0.9,
                                     softWrap: false,
-                                  ),
+                                  ).safeText(),
                                 ),
                               ),
                             )
@@ -285,7 +286,7 @@ class GroupContentView extends StatelessWidget {
                                     overflow: TextOverflow.clip,
                                     maxLines: 1,
                                     textScaleFactor: 0.9,
-                                  ),
+                                  ).safeText(),
                                 ),
                               ),
                             )
@@ -341,7 +342,7 @@ class GroupContentView extends StatelessWidget {
                                 overflow: TextOverflow.visible,
                                 maxLines: 1,
                                 textScaleFactor: 0.95,
-                              ),
+                              ).safeText(),
                             )
                           ],
                         ),
@@ -384,7 +385,7 @@ class GroupContentView extends StatelessWidget {
                                   overflow: TextOverflow.visible,
                                   maxLines: 1,
                                   textScaleFactor: 0.95,
-                                ),
+                                ).safeText(),
                               ),
                             )
                           ],
@@ -428,7 +429,7 @@ class GroupContentView extends StatelessWidget {
                                   overflow: TextOverflow.visible,
                                   maxLines: 1,
                                   textScaleFactor: 0.95,
-                                ),
+                                ).safeText(),
                               ),
                             )
                           ],
@@ -472,7 +473,7 @@ class GroupContentView extends StatelessWidget {
                                   overflow: TextOverflow.fade,
                                   maxLines: 1,
                                   textScaleFactor: 0.95,
-                                ),
+                                ).safeText(),
                               ),
                             )
                           ],
@@ -516,7 +517,7 @@ class GroupContentView extends StatelessWidget {
                                   overflow: TextOverflow.clip,
                                   maxLines: 1,
                                   textScaleFactor: 0.95,
-                                ),
+                                ).safeText(),
                               ),
                             )
                           ],

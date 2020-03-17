@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class GroupBlenderPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -25,7 +26,7 @@ class GroupBlenderPage extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text("Blender班", style: BaseTextStyles.h1(deviceInfo),),
+                      child: Text("Blender班", style: BaseTextStyles.h1(deviceInfo),).safeText(),
                     ),
                     Image.asset("image/groups/blender.jpg", fit: BoxFit.fitWidth,),
                     Padding(
@@ -38,7 +39,7 @@ class GroupBlenderPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("閉じる", style: BaseTextStyles.button,),
+                      child: Text("閉じる", style: BaseTextStyles.button,).safeText(),
                     )
                   ],
                 );

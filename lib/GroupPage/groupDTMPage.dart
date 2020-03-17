@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class GroupDTMPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -25,19 +26,22 @@ class GroupDTMPage extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text("DTM班", style: BaseTextStyles.h1(deviceInfo),),
+                      child: Text("DTM班", style: BaseTextStyles.h1(deviceInfo),).safeText(),
                     ),
                     Image.asset("image/groups/dtm.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("  DTM班では各種DAW(Studio One, Cubase, Logicなどの作曲ソフト)を使って曲を作り、秋のM3でCDを売っています!\n  普段はDAWの使い方、音楽理論の講習会等行っています!!", style: BaseTextStyles.plain,),
+                      child: Text(
+                        "  DTM班では各種DAW(Studio One, Cubase, Logicなどの作曲ソフト)を使って曲を作り、秋のM3でCDを売っています!\n  普段はDAWの使い方、音楽理論の講習会等行っています!!",
+                        style: BaseTextStyles.plain,
+                      ).safeText(),
                     ),
                     RaisedButton(
                       color: Color(0x61000000),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("閉じる", style: BaseTextStyles.button,),
+                      child: Text("閉じる", style: BaseTextStyles.button,).safeText(),
                     )
                   ],
                 );

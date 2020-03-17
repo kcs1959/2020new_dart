@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainWorksView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -24,7 +25,7 @@ class MainWorksView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("2019年度作品集", style: BaseTextStyles.h1(deviceInfo),),
+              Text("2019年度作品集", style: BaseTextStyles.h1(deviceInfo),).safeText(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                 child: SelectableText(
@@ -68,8 +69,8 @@ class MainWorksView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ListTile(
-              title: Text(info.title, style: BaseTextStyles.h4,),
-              subtitle: Text(info.summary, style: BaseTextStyles.subtitle1,),
+              title: Text(info.title, style: BaseTextStyles.h4,).safeText(),
+              subtitle: Text(info.summary, style: BaseTextStyles.subtitle1,).safeText(),
             ),
             Wrap(
               alignment: WrapAlignment.start,
@@ -82,7 +83,7 @@ class MainWorksView extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(100.0)),
                         side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
                       ),
-                      label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                      label: Text(genre.getString(), style: BaseTextStyles.subtitle1,).safeText()
                   ),
                 );
               }).toList(),
@@ -107,8 +108,8 @@ class MainWorksView extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: ListTile(
-                      title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
-                      subtitle: AutoSizeText(info.summary, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+                      title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,).safeText(),
+                      subtitle: AutoSizeText(info.summary, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,).safeText(),
                     ),
                   ),
                   Expanded(
@@ -124,7 +125,7 @@ class MainWorksView extends StatelessWidget {
                                   borderRadius: BorderRadius.all(Radius.circular(100.0)),
                                   side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
                               ),
-                              label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                              label: Text(genre.getString(), style: BaseTextStyles.subtitle1,).safeText()
                           ),
                         );
                       }).toList(),

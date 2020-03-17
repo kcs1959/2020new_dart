@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class GroupAIPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -26,19 +27,22 @@ class GroupAIPage extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text("AI班", style: BaseTextStyles.h1(deviceInfo),),
+                  child: Text("AI班", style: BaseTextStyles.h1(deviceInfo),).safeText(),
                 ),
                 Image.asset("image/groups/ai.jpg", fit: BoxFit.fitWidth,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("  AI班では、今流行りのAIとプログラミングの勉強をしています。矢上祭、三田祭に向けたAIを用いたアプリ開発も行っています。\n  KCS AI班独自の勉強会も行うので、初心者の方も大歓迎です。", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "  AI班では、今流行りのAIとプログラミングの勉強をしています。矢上祭、三田祭に向けたAIを用いたアプリ開発も行っています。\n  KCS AI班独自の勉強会も行うので、初心者の方も大歓迎です。",
+                    style: BaseTextStyles.plain,
+                  ).safeText(),
                 ),
                 RaisedButton(
                   color: Color(0x61000000),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text("閉じる", style: BaseTextStyles.button,),
+                  child: Text("閉じる", style: BaseTextStyles.button,).safeText(),
                 )
               ],
             );

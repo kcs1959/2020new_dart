@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/QAPage/qaContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainShinkanView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -28,7 +29,7 @@ class MainShinkanView extends StatelessWidget {
               Text(
                 "新歓情報",
                 style: BaseTextStyles.h1(deviceInfo),
-              ),
+              ).safeText(),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Card(
@@ -47,7 +48,7 @@ class MainShinkanView extends StatelessWidget {
                         Text(
                           "新型コロナウイルスの影響について",
                           style: BaseTextStyles.h4,
-                        ),
+                        ).safeText(),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                           child: SelectableText(
