@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
@@ -96,7 +97,25 @@ class MainWhatIsKCSView extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Image.asset("image/groupintroduce.jpg", fit: BoxFit.fitWidth,),
+                        AspectRatio(
+                          aspectRatio: 3/1,
+                            child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText(
+                                      "AI/Unity/Web/Blender/DTM",
+                                      style: TextStyle(
+                                          fontFamily: "CorporateLogo",
+                                          color: Colors.white60,
+                                          fontSize: 50.0
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/groupintroduce.jpg", fit: BoxFit.fitWidth,))
+                                ],
+                            )
+                        ),
                       ],
                     ),
                   ).showCursorOnHover,
@@ -191,7 +210,18 @@ class MainWhatIsKCSView extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(16.0))
                           ),
-                          child: Image.asset("image/events.jpg", fit: BoxFit.fitWidth),
+                          child: AspectRatio(
+                            aspectRatio: 3/1,
+                              child: Stack(
+                                children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText("年間行事", style: BaseTextStyles.h2,),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/events.jpg", fit: BoxFit.fitWidth)),
+                                ],
+                              )
+                          ),
                         ).showCursorOnHover,
                       ),
                     ),
@@ -211,7 +241,18 @@ class MainWhatIsKCSView extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(16.0))
                           ),
-                          child: Image.asset("image/characters.jpg", fit: BoxFit.fitWidth),
+                          child: AspectRatio(
+                              aspectRatio: 3/1,
+                              child: Stack(
+                                children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText("キャラクター紹介", style: BaseTextStyles.h2,),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/characters.jpg", fit: BoxFit.fitWidth),),
+                                ],
+                              )
+                          ),
                         ).showCursorOnHover,
                       ),
                     ),
