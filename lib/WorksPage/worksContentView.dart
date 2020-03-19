@@ -67,7 +67,7 @@ class _WorksContentViewState extends State<WorksContentView> {
             ExpandedGridContent(
                 rowIndex: 0, columnIndex: 4,
                 columnSpan: 2,
-                child: WorksTile(info: works[19])
+                child: WorksTile(info: works[18])
             ),
             ExpandedGridContent(
                 rowIndex: 0, columnIndex: 6,
