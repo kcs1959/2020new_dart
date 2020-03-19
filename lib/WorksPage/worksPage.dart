@@ -47,7 +47,7 @@ class WorksPageCoreState extends State<WorksPageCore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF121212),
+      backgroundColor: Color(0xFF1d0463),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints boxConstraints) {
           deviceInfo = DeviceInfo.measure(boxConstraints.biggest);
