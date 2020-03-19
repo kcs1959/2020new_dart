@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/QAPage/qaContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
@@ -258,6 +260,15 @@ class MainWhatIsKCSView extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              Center(
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  alignment: WrapAlignment.center,
+                  children: <Widget>[
+                    linkCard("講習会一覧", "2020年度講習会情報", Icon(Icons.description, size: 48.0, color: Colors.white38,), Link.toSessionsKCS).showCursorOnHover,
+                  ],
+                ),
               )
               /*
               //豆知識

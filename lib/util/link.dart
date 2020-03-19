@@ -9,6 +9,7 @@ const String _HP_KCS = "https://kcs1959.jp/";
 const String _LINE_KCS = "https://lin.ee/AVumbCs";
 const String _PEING_KCS = "https://peing.net/ja/kcs1959?event=0";
 const String _MAIL_KCS = "mailto:kcs1959@gmail.com";
+const String _SESSIONS_KCS = "https://kcs1959.jp/2020%E5%B9%B4%E5%BA%A6%E8%AC%9B%E7%BF%92%E4%BC%9A%E4%B8%80%E8%A6%A7";
 
 const String _KCS_TUBER = "https://kcs1959.github.io/kcstuber/";
 
@@ -50,6 +51,10 @@ class Link {
 
   static void toKCSTuber() async {
     await _hyperLink(_KCS_TUBER);
+  }
+
+  static void toSessionsKCS() async {
+    await _hyperLink(_SESSIONS_KCS);
   }
 
   static void shareTwitter(String text) async {

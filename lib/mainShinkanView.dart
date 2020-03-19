@@ -6,6 +6,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 class MainShinkanView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -66,7 +67,7 @@ class MainShinkanView extends StatelessWidget {
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.center,
                   children: <Widget>[
-                    linkCard("LINE@", "新歓情報", Image.asset("image/linelogo.png", height: 48), Link.toLineKCS),
+                    linkCard("LINE@", "新歓情報", Image.asset("image/linelogo.png", height: 48), Link.toLineKCS).showCursorOnHover,
                   ],
                 ),
               )
