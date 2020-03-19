@@ -29,6 +29,7 @@ dependencies:
   auto_size_text: ^2.1.0
   responsive_grid: ^1.1.1
   url_launcher: ^5.4.2
+  easy_web_view: ^1.1.1
   firebase: ^7.2.1
   fb_auth:
     git:
@@ -37,6 +38,10 @@ dependencies:
   clippy_flutter:
     git:
       url: git://github.com/organic-nailer/clippy_flutter.git
+      ref: master
+  expanded_grid:
+    git:
+      url: git://github.com/organic-nailer/expanded_grid.git
       ref: master
 
 dev_dependencies:
@@ -87,6 +92,7 @@ flutter:
     - image/groups/web.jpg
     - image/icon_qrcode.png
     - image/schedule/
+    - image/works/
 
   fonts:
     - family: CorporateLogo
