@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
 
-var _works = <WorkInfo>[
+const _works = <WorkInfo>[
   WorkInfo("馬・シマウマ相互変換AI", "相互変換AI", "supercell", "理工学部2年", null, ["image/works/supercell_ai.jpg"], null, [WorkGenre.AI,], null, "Python"),
   WorkInfo("接待オセロ", "接待オセロ", "FF", "理工学部4年", null, ["image/works/ff_othello.jpg"], null, [WorkGenre.AI, WorkGenre.WEB, WorkGenre.GAME], "Web", "Python"),
   WorkInfo("建物", "建物", "K.", "理工学部1年", null, ["image/works/k_building_cg.jpg", "image/works/k_building_dev.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),

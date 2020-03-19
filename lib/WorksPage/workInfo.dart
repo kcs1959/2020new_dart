@@ -12,5 +12,5 @@ class WorkInfo {
   final String tool;
   final String language;
 
-  WorkInfo(this.title, this.head, this.author, this.faculty, this.comment, this.image, this.link, this.genres, this.tool, this.language);
+  const WorkInfo(this.title, this.head, this.author, this.faculty, this.comment, this.image, this.link, this.genres, this.tool, this.language);
 }
