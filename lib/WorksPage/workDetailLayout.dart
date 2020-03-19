@@ -20,15 +20,12 @@ class WorkDetailLayout extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(32.0)),
             ),
-            child: Hero(
-              tag: heroTag,
-              child: Container(
-                color: color,
-                child: Scrollbar(
-                  child: SingleChildScrollView(
-                    child: Column(
-                        children: children
-                    ),
+            child: Container(
+              color: color,
+              child: Scrollbar(
+                child: SingleChildScrollView(
+                  child: Column(
+                      children: children
                   ),
                 ),
               ),

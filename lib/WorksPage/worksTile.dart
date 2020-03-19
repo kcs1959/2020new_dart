@@ -30,7 +30,12 @@ class WorksTile extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
-                  child: info.image.length > 0 ? Image.asset(info.image[0], fit: BoxFit.cover,) : Container(color: Colors.pink,),
+                  child: info.image.length > 0
+                      ? Hero(
+                          child: Image.asset(info.image[0], fit: BoxFit.cover,),
+                          tag: info.head
+                        )
+                      : Container(color: Colors.pink,),
                 ),
                 Positioned.fill(
                   child: Opacity(

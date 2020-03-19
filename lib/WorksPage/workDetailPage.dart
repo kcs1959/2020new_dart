@@ -37,10 +37,6 @@ class WorkDetailPageState extends State<WorkDetailPage> {
     final WorkInfo args = ModalRoute.of(context).settings.arguments
       ?? WorksData.random();
 
-    Future(() {
-      print(ModalRoute.of(context).overlayEntries);
-    });
-
     return Scaffold(
       backgroundColor: Color(0x80000000),
       body: InkWell(
@@ -51,7 +47,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
             builder: (context, boxConstraint) {
               deviceInfo = DeviceInfo.measure(boxConstraint.biggest);
               return WorkDetailLayout(
-                heroTag: "HOGE",
+                heroTag: "hoge",
                 color: Color(0xFF121212),
                 children: <Widget>[
                   AspectRatio(
@@ -60,7 +56,15 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                       children: <Widget>[
                         PageView(
                             controller: _pageViewController,
-                            children: args.image.map((e) => Image.asset(e)).toList()
+                            children: args.image.mapIndexed((index, item) {
+                              if(index == 0) {
+                                return Hero(
+                                  tag: args.head,
+                                  child: Image.asset(item),
+                                );
+                              }
+                              else return Image.asset(item);
+                            })
                         ),
                         Positioned(
                           top: 0, bottom: 0, left: 0,
@@ -167,5 +171,23 @@ class WorkDetailPageState extends State<WorkDetailPage> {
         ),
       ),
     );
+  }
+}
+
+extension MyList<E, T> on List<T> {
+  //https://stackoverflow.com/questions/54898767/enumerate-or-map-through-a-list-with-index-and-value-in-dart のやつを拡張関数に書き換えたやつ
+  List<E> mapIndexed<E>(E Function(int index, T item) f) {
+    var index = 0;
+    var ret = List<E>();
+
+    for (final item in this) {
+      ret.add(f(index, item));
+      index = index + 1;
+    }
+    return ret;
+  }
+
+  List<T> nonNull() {
+    return this.where((t) => t != null).toList();
   }
 }

@@ -23,9 +23,9 @@ var _works = <WorkInfo>[
   WorkInfo("sf", "sf", "K.", "理工学部1年", null, ["image/works/k_sf.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo("部屋", "部屋", "K.", "理工学部1年", null, ["image/works/k_room.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo("New Name!", "New Name!", "Rinju", "理工学部2年", null, [], null, [WorkGenre.DTM, WorkGenre.MUSIC], null, null),
-  WorkInfo("undefined", "undefined", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
-  WorkInfo("undefined", "undefined", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
-  WorkInfo("undefined", "undefined", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
+  WorkInfo("undefined", "undefined1", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
+  WorkInfo("undefined", "undefined2", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
+  WorkInfo("undefined", "undefined3", null, null, null, ["image/yuzuka_rough.jpg"], null, [], "MONSTER", null),
 ];
 
 class WorksData {
