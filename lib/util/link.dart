@@ -64,6 +64,10 @@ class Link {
     await _hyperLink(link);
   }
 
+  static void shareFree(String url) async {
+    await _hyperLink(url);
+  }
+
   static Future<bool> _hyperLink(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
