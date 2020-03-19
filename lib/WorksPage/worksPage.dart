@@ -1,16 +1,52 @@
 import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 
 class WorksPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    NavigateWorksArgument args = ModalRoute.of(context).settings.arguments;
+    return WorksPageCore(argument: args,);
+  }
+}
+
+class WorksPageCore extends StatefulWidget {
+  final NavigateWorksArgument argument;
+
+  WorksPageCore({Key key, this.argument}): super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => WorksPageCoreState();
+}
+
+class WorksPageCoreState extends State<WorksPageCore> {
   DeviceInfo deviceInfo;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
     analytics().logEvent("PAGE_WORKS", null);
+
+    if(widget.argument != null) {
+      Future(() {
+        print("WORKS_FUTURE");
+        FastNavigator().pushNamed(
+            Navigator.of(context),
+            RouteSettings(name: "/works/detail", arguments: WorksData().works[widget.argument.openDetail]),
+            "",
+            false
+        );
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF121212),
       body: LayoutBuilder(
@@ -28,5 +64,13 @@ class WorksPage extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class NavigateWorksArgument {
+  int openDetail;
+  NavigateWorksArgument(String detail) {
+    if(detail == null) return;
+    this.openDetail = int.tryParse(detail);
   }
 }

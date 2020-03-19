@@ -14,6 +14,10 @@ class WorkDetailPage extends StatelessWidget {
     final WorkInfo args = ModalRoute.of(context).settings.arguments
       ?? WorksData.random();
 
+    Future(() {
+      print(ModalRoute.of(context).overlayEntries);
+    });
+
     return Scaffold(
       backgroundColor: Color(0x80000000),
       body: InkWell(
