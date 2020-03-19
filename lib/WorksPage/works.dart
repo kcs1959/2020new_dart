@@ -10,7 +10,7 @@ const _works = <WorkInfo>[
   WorkInfo(1, "接待オセロ", "接待オセロ", "FF", "理工学部4年", null, ["image/works/ff_othello.jpg"], null, [WorkGenre.AI, WorkGenre.WEB, WorkGenre.GAME], "Web", "Python"),
   WorkInfo(2, "建物", "建物", "K.", "理工学部1年", null, ["image/works/k_building_cg.jpg", "image/works/k_building_dev.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo(3, "車", "車", "K.", "理工学部1年", null, ["image/works/k_car_cg.jpg", "image/works/k_car_dev.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
-  WorkInfo(4, "顔", "顔", null, "理工学部1年", null, ["image/works/cooh2_face.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
+  WorkInfo(4, "顔", "顔", null, "理工学部1年", null, ["image/works/cooh2_face1.jpg", "image/works/cooh2_face2.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo(5, "座っているKCSちゃん", "KCSちゃん", null, "理工学部1年", null, ["image/works/cooh2_kcschann1.jpg", "image/works/cooh2_kcschann2.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo(6, "熱盛ゲーム", "熱盛", "Sho/HandleSpinner", "理工学部1年", null, ["image/works/sho_atsumori1.jpg", "image/works/sho_atsumori2.jpg", "image/works/sho_atsumori_dev.png", "image/works/sho_atsumori_title.png"], null, [WorkGenre.UNITY, WorkGenre.GAME], "Unity", "C#"),
   WorkInfo(7, "I wanna avoid the 3D barrage 2 (VR)", "VR", null, "理工学部2年", null, ["image/works/sorariku_iwanna.jpg", "image/works/sorariku_iwanna.jpg"], null, [WorkGenre.UNITY, WorkGenre.GAME], "Unity", "C#"),
@@ -24,7 +24,7 @@ const _works = <WorkInfo>[
   WorkInfo(15,"部屋", "部屋", "K.", "理工学部1年", null, ["image/works/k_room.jpg"], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
   WorkInfo(16,"New Name!", "New Name!", "Rinju", "理工学部2年", null, [], "https://soundcloud.com/rinju-132102135/new-name", [WorkGenre.DTM, WorkGenre.MUSIC], null, null, embed: """<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/694484653&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>"""),
   WorkInfo(17,"KCSドラゴン(木)", "KCSドラゴン", "fastriver", "理工学部1年", "レーザーに焼かれたKCSドラゴン。工場での加工はとても楽しい", ["image/works/fastriver_kcsdragon1.jpg", "image/works/fastriver_kcsdragon2.jpg"], null, [WorkGenre.OTHERS], "レーザー加工機(矢上)", null),
-  WorkInfo(18,"動物将棋", "動物将棋", "fastriver", "理工学部1年", "硬派向けのどうぶつしょうぎ。数時間で作ったのでバグが多い。三田祭では存外人気だった", ["image/works/fastriver_doubutsu1.jpg", "iamge/works/fastriver_doubutsu2.jpg"], null, [WorkGenre.WEB, WorkGenre.GAME], "Flutter", "Dart"),
+  WorkInfo(18,"カワウソカステラ", "カワウソカステラ", null, "理工学部1年", null, ["image/works/cooh2_usotera1.jpg", "image/works/cooh2_usotera2.jpg", "image/works/cooh2_usotera3.jpg", ], null, [WorkGenre.BLENDER, WorkGenre.CG], "Blender", null),
 ];
 
 class WorksData {
