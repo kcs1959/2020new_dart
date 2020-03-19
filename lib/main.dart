@@ -118,7 +118,6 @@ class MyAppState extends State<MyApp> {
         supportedLocales: [
           Locale('ja', 'JP'),
         ],
-        ],
         onGenerateRoute: FastNavigator().getOnGenerateRoute,
         routes: FastNavigator().getRoutes,
         /*
