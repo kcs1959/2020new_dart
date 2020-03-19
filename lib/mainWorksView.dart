@@ -85,14 +85,10 @@ class _MainWorksViewState extends State<MainWorksView> {
         color: Color(0x17ffffff),
         child: InkWell(
           onTap: () {
-            //TODO: ひどい実装
-            var index = WorksData().works.indexWhere((element) => element.head == info.head);
-            if(index >= 0) {
-              Navigator.of(context).pushNamed(
+            Navigator.of(context).pushNamed(
                 "/works",
-                arguments: NavigateWorksArgument(index.toString())
-              );
-            }
+                arguments: NavigateWorksArgument(info.id.toString())
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,14 +134,10 @@ class _MainWorksViewState extends State<MainWorksView> {
           color: Color(0x17ffffff),
           child: InkWell(
             onTap: () {
-              //TODO: ひどい実装
-              var index = WorksData().works.indexWhere((element) => element.head == info.head);
-              if(index >= 0) {
-                Navigator.of(context).pushNamed(
-                    "/works",
-                    arguments: NavigateWorksArgument(index.toString())
-                );
-              }
+              Navigator.of(context).pushNamed(
+                  "/works",
+                  arguments: NavigateWorksArgument(info.id.toString())
+              );
             },
             child: Column(
               children: <Widget>[

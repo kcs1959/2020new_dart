@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
@@ -8,6 +9,9 @@ import 'package:kcs_2020_shinkan_web/WorksPage/worksTile.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:expanded_grid/expanded_grid.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/util/link.dart';
+import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 class WorksContentView extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -109,7 +113,7 @@ class _WorksContentViewState extends State<WorksContentView> {
                 rowIndex: 3, columnIndex: 3,
                 rowSpan: 2, columnSpan: 4,
                 child: Center(
-                  child: Text("KCS Works 2019", style: BaseTextStyles.h1Tint(widget.deviceInfo,),),
+                  child: Text("KCS Works 2019", style: BaseTextStyles.h1Tint(widget.deviceInfo,),).safeText(),
                 )
             ),
             ExpandedGridContent(
@@ -129,7 +133,24 @@ class _WorksContentViewState extends State<WorksContentView> {
             ),
             ExpandedGridContent(
                 rowIndex: 5, columnIndex: 4,
-                child: WorksTile(info: works[18])
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    color: Colors.blue,
+                    child: InkWell(
+                      onTap: () {
+                        Link.shareTwitter("KCS新歓特設ページ2020 -作品集 \n https://kcs1959.github.io/2020new/#/works");
+                      },
+                      child: Center(
+                        child: AutoSizeText(
+                          "SHARE ON \n TWITTER",
+                          textAlign: TextAlign.center,
+                          style: BaseTextStyles.plain,
+                        ).safeText(),
+                      ),
+                    ),
+                  ).showCursorOnHover,
+                )
             ),
             ExpandedGridContent(
                 rowIndex: 5, columnIndex: 5,
@@ -171,7 +192,7 @@ class _WorksContentViewState extends State<WorksContentView> {
               maxLines: 2,
               textAlign: TextAlign.center,
               style: BaseTextStyles.h1(widget.deviceInfo),
-            ),
+            ).safeText(),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

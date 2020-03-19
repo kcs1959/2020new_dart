@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:easy_web_view/easy_web_view.dart';
 import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +11,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class WorkDetailPage extends StatefulWidget {
   @override
@@ -16,6 +20,7 @@ class WorkDetailPage extends StatefulWidget {
 
 class WorkDetailPageState extends State<WorkDetailPage> {
   static const routeName = "/works/detail";
+  var embedHtml;
 
   PageController _pageViewController;
   DeviceInfo deviceInfo;
@@ -43,6 +48,9 @@ class WorkDetailPageState extends State<WorkDetailPage> {
       backgroundColor: Color(0x80000000),
       body: InkWell(
         onTap: () {
+          setState(() {
+            embedHtml = "";
+          });
           Navigator.of(context).pop();
         },
         child: LayoutBuilder(
@@ -54,23 +62,37 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                 children: <Widget>[
                   AspectRatio(
                     aspectRatio: 16/9,
-                    child: args.image.length == 0 ? Center(child: Text("No Image", style: BaseTextStyles.plain,),) : Stack(
-                      children: <Widget>[
-                        PageView(
-                            controller: _pageViewController,
-                            children: args.image.mapIndexed((index, item) {
-                              if(index == 0) {
-                                return Hero(
-                                  tag: args.head,
-                                  child: Image.asset(item),
-                                );
-                              }
-                              else return Image.asset(item);
-                            })
-                        ),
-                        Positioned(
-                          top: 0, bottom: 0, left: 0,
-                          child: ButtonTheme(
+                    child: args.embed != null
+                        ? Align(
+                          alignment: Alignment.center,
+                          child: Builder(
+                            builder: (context) {
+                              embedHtml = args.embed;
+                              return EasyWebView(
+                                src: embedHtml,
+                                isHtml: true,
+                                webAllowFullScreen: false,
+                              );
+                            }
+                          ),
+                        )
+                        : args.image.length == 0 ? Center(child: Text("No Image", style: BaseTextStyles.plain,).safeText(),) : Stack(
+                          children: <Widget>[
+                            PageView(
+                              controller: _pageViewController,
+                              children: args.image.mapIndexed((index, item) {
+                                if(index == 0) {
+                                  return Hero(
+                                    tag: args.head,
+                                    child: Image.asset(item),
+                                  );
+                                }
+                                else return Image.asset(item);
+                              })
+                            ),
+                            Positioned(
+                            top: 0, bottom: 0, left: 0,
+                            child: ButtonTheme(
                             minWidth: 20,
                             child: FlatButton(
                               onPressed: () {
@@ -115,7 +137,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                       args.title,
                       style: BaseTextStyles.h1(deviceInfo),
                       textAlign: TextAlign.center,
-                    ),
+                    ).safeText(),
                   ),
                   Wrap(
                     alignment: WrapAlignment.center,
@@ -128,7 +150,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                                 borderRadius: BorderRadius.all(Radius.circular(100.0)),
                                 side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
                             ),
-                            label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                            label: Text(genre.getString(), style: BaseTextStyles.subtitle1,).safeText()
                         ),
                       );
                     }).toList(),
@@ -143,7 +165,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                       if(args.language != null) content += "言語: " + args.language + "\n";
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(content, style: BaseTextStyles.plain, textAlign: TextAlign.center,),
+                        child: Text(content, style: BaseTextStyles.plain, textAlign: TextAlign.center,).safeText(),
                       );
                     },
                   ),
@@ -155,7 +177,17 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(100))
                     ),
-                    child: Text("作品を見る", style: BaseTextStyles.button,),
+                    child: Text("作品を見る", style: BaseTextStyles.button,).safeText(),
+                  ),
+                  RaisedButton(
+                    color: Colors.blue,
+                    onPressed: () {
+                      Link.shareTwitter("「${args.title}」 -KCS新歓2020 作品集 \n https://kcs1959.github.io/#/works/detail?id=${args.id}");
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(100))
+                    ),
+                    child: Text("Tweet!", style: BaseTextStyles.button).safeText(),
                   ),
                   RaisedButton(
                     color: Color(0xDEFFFFFF),
@@ -165,7 +197,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(100))
                     ),
-                    child: Text("閉じる", style: BaseTextStyles.buttonTint(tint: Color(0xFF121212)),),
+                    child: Text("閉じる", style: BaseTextStyles.buttonTint(tint: Color(0xFF121212)),).safeText(),
                   )
                 ],
               );

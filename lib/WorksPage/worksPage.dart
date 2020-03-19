@@ -6,6 +6,7 @@ import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class WorksPage extends StatelessWidget {
   @override

@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:kcs_2020_shinkan_web/wid/scaleOnHover.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class WorksTile extends StatelessWidget {
   final WorkInfo info;
@@ -34,7 +35,7 @@ class WorksTile extends StatelessWidget {
                           child: Image.asset(info.image[0], fit: BoxFit.cover,),
                           tag: info.head
                         )
-                      : Container(color: Colors.pink,),
+                      : Container(color: Colors.orange,),
                 ),
                 Positioned.fill(
                   child: Opacity(
@@ -54,7 +55,7 @@ class WorksTile extends StatelessWidget {
                       fontFamily: "CorporateLogo",
                       color: Color(0xDEFFFFFF)
                     )
-                  ),
+                  ).safeText(),
                 )
               ],
             ),
