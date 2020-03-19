@@ -288,6 +288,12 @@ class MainFooter extends StatelessWidget {
           },
           child: Text("よくある質問", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
+        FlatButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed("/editorialNote");
+          },
+          child: Text("編 集 後 記", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
+        ).showCursorOnHover,
       ],
     );
   }

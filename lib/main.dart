@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kcs_2020_shinkan_web/CharacterPage/characterPage.dart';
+import 'package:kcs_2020_shinkan_web/EditorialNotePage/editorialNotePage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupAIPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupPage.dart';
 import 'package:kcs_2020_shinkan_web/SchedulePage/schedulePage.dart';
@@ -51,7 +52,8 @@ class MyAppState extends State<MyApp> {
         "/groups":    (_) => new GroupPage(),
         "/groups/ai": (_) => new GroupAIPage(),
         "/character": (_) => new CharacterPage(),
-        "/schedule":  (_) => new SchedulePage()
+        "/schedule":  (_) => new SchedulePage(),
+        "/editorialNote": (_) => new EditorialNotePage()
       },
       onGenerateRoute: (settings, routes) {
         print("path: ${settings.name}");
