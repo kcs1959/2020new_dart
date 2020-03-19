@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -33,7 +35,7 @@ class MainWorksView extends StatelessWidget {
                 ),
               ),
               ResponsiveGridRow(
-                children: works.map((work) {
+                children: WorksData().works.getRange(0, 3).map((work) {
                   return ResponsiveGridCol(
                     sm: 12, md: 6, lg: 4,
                     child: deviceInfo.device == Device.PC
@@ -69,7 +71,7 @@ class MainWorksView extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(info.title, style: BaseTextStyles.h4,),
-              subtitle: Text(info.summary, style: BaseTextStyles.subtitle1,),
+              subtitle: Text(info.comment ?? info.author, style: BaseTextStyles.subtitle1,),
             ),
             Wrap(
               alignment: WrapAlignment.start,
@@ -87,7 +89,7 @@ class MainWorksView extends StatelessWidget {
                 );
               }).toList(),
             ),
-            Image.asset(info.image, height: 200, width: double.infinity, fit: BoxFit.cover,)
+            Image.asset(info.image[0], height: 200, width: double.infinity, fit: BoxFit.cover,)
           ],
         ),
       ),
@@ -108,7 +110,7 @@ class MainWorksView extends StatelessWidget {
                     flex: 2,
                     child: ListTile(
                       title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
-                      subtitle: AutoSizeText(info.summary, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+                      subtitle: AutoSizeText(info.comment ?? info.author, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
                     ),
                   ),
                   Expanded(
@@ -134,7 +136,7 @@ class MainWorksView extends StatelessWidget {
               ),
               AspectRatio(
                 aspectRatio: 4/1,
-                  child: Image.asset(info.image, fit: BoxFit.fitWidth,)
+                  child: Image.asset(info.image[0], fit: BoxFit.fitWidth,)
               )
             ],
           ),
@@ -143,7 +145,7 @@ class MainWorksView extends StatelessWidget {
     );
   }
 }
-
+/*
 var works = <WorkInfo>[
   WorkInfo("つらたん", "つらいときにやるゲーム", "image/tsuratan.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
   //WorkInfo("クラタン", "スマホで自作の単語帳", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.TOOL]),
@@ -151,23 +153,11 @@ var works = <WorkInfo>[
   WorkInfo("BEYOND THE LIMIT", "レジェンド先生作", "image/beyondthelimit.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME, WorkGenre.BLENDER]),
   //WorkInfo("接待オセロ", "人にやさしいAI", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME, WorkGenre.AI]),
   WorkInfo("熱盛", "三田祭で大人気！", "image/atsumori.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME]),
-];
-
-class WorkInfo {
-  final String title;
-  final String summary;
-  final String image;
-  final List<WorkGenre> genres;
-
-  WorkInfo(this.title, this.summary, this.image, this.genres)
-    : assert(title != null),
-      assert(summary != null),
-      assert(genres != null);
-}
+];*/
 
 enum WorkGenre {
   WEB, AI, UNITY, BLENDER, DTM, OTHERS,
-  STUDY, GAME, TOOL
+  STUDY, GAME, TOOL, CG, MUSIC
 }
 
 extension WorkGenreExtension on WorkGenre {
@@ -191,6 +181,10 @@ extension WorkGenreExtension on WorkGenre {
         return "Game";
       case WorkGenre.TOOL:
         return "Tool";
+      case WorkGenre.CG:
+        return "CG";
+      case WorkGenre.MUSIC:
+        return "Music";
       default:
         return this.toString().substring(10);
     }

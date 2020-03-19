@@ -1,4 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/worksTile.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:expanded_grid/expanded_grid.dart';
@@ -8,6 +13,8 @@ class WorksContentView extends StatelessWidget {
 
   WorksContentView({Key key, this.deviceInfo}): super(key: key);
 
+  final works = WorksData().works;
+
   @override
   Widget build(BuildContext context) {
     //return UnderConstructionView(deviceInfo: deviceInfo,);
@@ -15,84 +22,113 @@ class WorksContentView extends StatelessWidget {
       width: deviceInfo.size.width,
       height: deviceInfo.size.height - 60,
       child: ExpandedGrid(
-        column: 7, row: 5,
+        column: 10, row: 8,
         children: <ExpandedGridContent>[
           ExpandedGridContent(
             rowIndex: 0, columnIndex: 0,
-            columnSpan: 2,
-            child: Container(color: Colors.green,),
+            rowSpan: 2, columnSpan: 3,
+            child: WorksTile(info: works[9])
           ),
           ExpandedGridContent(
-            rowIndex: 0, columnIndex: 2,
-            rowSpan: 2, columnSpan: 2,
-            child: Container(color: Colors.red,),
+            rowIndex: 0, columnIndex: 3,
+            rowSpan: 2,
+              child: WorksTile(info: works[10])
           ),
           ExpandedGridContent(
             rowIndex: 0, columnIndex: 4,
-            columnSpan: 3,
-            child: Container(color: Colors.teal,),
+            columnSpan: 2,
+              child: WorksTile(info: works[19])
           ),
           ExpandedGridContent(
-            rowIndex: 1, columnIndex: 0,
+            rowIndex: 0, columnIndex: 6,
             rowSpan: 2, columnSpan: 2,
-            child: Container(color: Colors.blue,),
+              child: WorksTile(info: works[5])
+          ),
+          ExpandedGridContent(
+            rowIndex: 0, columnIndex: 8,
+            columnSpan: 2,
+              child: WorksTile(info: works[11])
           ),
           ExpandedGridContent(
             rowIndex: 1, columnIndex: 4,
-            columnSpan: 2,
-            child: Container(color: Colors.lightGreen,),
+            rowSpan: 2, columnSpan: 2,
+              child: WorksTile(info: works[13])
           ),
           ExpandedGridContent(
-            rowIndex: 1, columnIndex: 6,
-            rowSpan: 2,
-            child: Container(color: Colors.pink,),
+            rowIndex: 1, columnIndex: 8,
+            rowSpan: 2, columnSpan: 2,
+              child: WorksTile(info: works[2])
+          ),
+          ExpandedGridContent(
+            rowIndex: 2, columnIndex: 0,
+            rowSpan: 2, columnSpan: 2,
+              child: WorksTile(info: works[6])
           ),
           ExpandedGridContent(
             rowIndex: 2, columnIndex: 2,
-            columnSpan: 3,
+            columnSpan: 2,
+              child: WorksTile(info: works[12])
+          ),
+          ExpandedGridContent(
+            rowIndex: 2, columnIndex: 6,
+            columnSpan: 2,
+              child: WorksTile(info: works[1])
+          ),
+          ExpandedGridContent(
+            rowIndex: 3, columnIndex: 2,
+            rowSpan: 2,
+              child: WorksTile(info: works[14])
+          ),
+          ExpandedGridContent(
+            rowIndex: 3, columnIndex: 3,
+            rowSpan: 2, columnSpan: 4,
             child: Center(
               child: Text("KCS Works 2019", style: BaseTextStyles.h1Tint(deviceInfo,),),
             )
           ),
           ExpandedGridContent(
-            rowIndex: 2, columnIndex: 5,
-            child: Container(color: Colors.lightBlue,),
+            rowIndex: 3, columnIndex: 7,
+            rowSpan: 3, columnSpan: 3,
+              child: WorksTile(info: works[0])
           ),
           ExpandedGridContent(
-            rowIndex: 3, columnIndex: 0,
-            rowSpan: 2,
-            child: Container(color: Colors.greenAccent,),
+            rowIndex: 4, columnIndex: 0,
+            rowSpan: 4, columnSpan: 2,
+              child: WorksTile(info: works[8])
           ),
           ExpandedGridContent(
-            rowIndex: 3, columnIndex: 1,
-            child: Container(color: Colors.orange,),
-          ),
-          ExpandedGridContent(
-            rowIndex: 3, columnIndex: 2,
-            child: Container(color: Colors.tealAccent,),
-          ),
-          ExpandedGridContent(
-            rowIndex: 3, columnIndex: 3,
-            columnSpan: 2,
-            child: Container(color: Colors.blueGrey,),
-          ),
-          ExpandedGridContent(
-            rowIndex: 3, columnIndex: 5,
+            rowIndex: 5, columnIndex: 2,
             rowSpan: 2, columnSpan: 2,
-            child: Container(color: Colors.lightGreenAccent),
+              child: WorksTile(info: works[7])
           ),
           ExpandedGridContent(
-            rowIndex: 4, columnIndex: 1,
-            child: Container(color: Colors.lightBlueAccent,),
+            rowIndex: 5, columnIndex: 4,
+              child: WorksTile(info: works[18])
           ),
           ExpandedGridContent(
-            rowIndex: 4, columnIndex: 2,
+            rowIndex: 5, columnIndex: 5,
             columnSpan: 2,
-            child: Container(color: Colors.cyan,),
+              child: WorksTile(info: works[3])
           ),
           ExpandedGridContent(
-            rowIndex: 4, columnIndex: 4,
-            child: Container(color: Colors.pinkAccent,),
+            rowIndex: 6, columnIndex: 4,
+            rowSpan: 2, columnSpan: 2,
+              child: WorksTile(info: works[16])
+          ),
+          ExpandedGridContent(
+            rowIndex: 6, columnIndex: 6,
+            rowSpan: 2, columnSpan: 3,
+              child: WorksTile(info: works[15])
+          ),
+          ExpandedGridContent(
+            rowIndex: 6, columnIndex: 9,
+            rowSpan: 2,
+              child: WorksTile(info: works[17])
+          ),
+          ExpandedGridContent(
+            rowIndex: 7, columnIndex: 2,
+            columnSpan: 2,
+              child: WorksTile(info: works[4])
           ),
         ],
       ),
