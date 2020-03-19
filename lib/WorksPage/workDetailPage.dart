@@ -182,7 +182,7 @@ class WorkDetailPageState extends State<WorkDetailPage> {
                   RaisedButton(
                     color: Colors.blue,
                     onPressed: () {
-                      Link.shareTwitter("「${args.title}」 -KCS新歓2020 作品集 \n https://kcs1959.github.io/#/works/detail?id=${args.id}");
+                      Link.shareTwitter("「${args.title}」 -KCS新歓2020 作品集 \n https://kcs1959.github.io/2020new/#/works/detail?id=${args.id}");
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(100))
