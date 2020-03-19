@@ -19,7 +19,6 @@ class FastNavigator {
   void pushNamed(
       NavigatorState navigatorState,
       RouteSettings settings,
-      String routeForDisplay,
       bool opaque) {
     if(!_routes.containsKey(settings.name)) {
       print("${settings.name} is not found");
@@ -28,11 +27,6 @@ class FastNavigator {
     navigatorState.push(PageRouteBuilder(
       pageBuilder: (context,__,___) => _routes[settings.name](context),
       settings: settings,
-      /*settings: RouteSettings(
-        name: routeForDisplay,
-        isInitialRoute: settings.isInitialRoute,
-        arguments: settings.arguments
-      ),*/
       opaque: opaque
     ));
   }

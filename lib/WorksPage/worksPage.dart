@@ -34,11 +34,9 @@ class WorksPageCoreState extends State<WorksPageCore> {
 
     if(widget.argument != null) {
       Future(() {
-        print("WORKS_FUTURE");
         FastNavigator().pushNamed(
             Navigator.of(context),
             RouteSettings(name: "/works/detail", arguments: WorksData().works[widget.argument.openDetail]),
-            "",
             false
         );
       });
@@ -55,7 +53,17 @@ class WorksPageCoreState extends State<WorksPageCore> {
           return SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SubAppBar(deviceInfo: deviceInfo,),
+                SubAppBar(
+                  deviceInfo: deviceInfo,
+                  title: Text(
+                    "作品集",
+                    style: TextStyle(
+                        fontFamily: "CorporateLogo",
+                        color: Colors.white,
+                        fontSize: 40.0
+                    ),
+                  ),
+                ),
                 WorksContentView(deviceInfo: deviceInfo,),
                 MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -作品集 \n https://kcs1959.github.io/2020new/#/works",)
               ],

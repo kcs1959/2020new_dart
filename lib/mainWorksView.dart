@@ -3,15 +3,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
+import 'package:kcs_2020_shinkan_web/WorksPage/worksPage.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
-class MainWorksView extends StatelessWidget {
+class MainWorksView extends StatefulWidget {
   final DeviceInfo deviceInfo;
 
   MainWorksView({Key key, this.deviceInfo}): super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _MainWorksViewState();
+}
+
+class _MainWorksViewState extends State<MainWorksView> {
+  List<WorkInfo> pickuped;
+
+  @override
+  void initState() {
+    super.initState();
+
+    pickuped = WorksData.pickUp(3);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +36,13 @@ class MainWorksView extends StatelessWidget {
       child: Align(
         alignment: Alignment.topCenter,
         child: Container(
-          width: deviceInfo.size.height * 4 / 3,
+          width: widget.deviceInfo.size.height * 4 / 3,
           padding: EdgeInsets.all(8.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("2019年度作品集", style: BaseTextStyles.h1(deviceInfo),),
+              Text("2019年度作品集", style: BaseTextStyles.h1(widget.deviceInfo),),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                 child: SelectableText(
@@ -35,12 +51,12 @@ class MainWorksView extends StatelessWidget {
                 ),
               ),
               ResponsiveGridRow(
-                children: WorksData().works.getRange(0, 3).map((work) {
+                children: pickuped.map((work) {
                   return ResponsiveGridCol(
                     sm: 12, md: 6, lg: 4,
-                    child: deviceInfo.device == Device.PC
-                        ? workCard(work)
-                        : workCardForMobile(work),
+                    child: widget.deviceInfo.device == Device.PC
+                        ? workCard(work, context)
+                        : workCardForMobile(work, context),
                   );
                 }).toList(),
               ),
@@ -61,86 +77,117 @@ class MainWorksView extends StatelessWidget {
     );
   }
 
-  Widget workCard(WorkInfo info) {
+  Widget workCard(WorkInfo info, context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
         color: Color(0x17ffffff),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ListTile(
-              title: Text(info.title, style: BaseTextStyles.h4,),
-              subtitle: Text(info.comment ?? info.author, style: BaseTextStyles.subtitle1,),
-            ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              children: info.genres.map((genre) {
-                return Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Chip(
-                    backgroundColor: Color(0xFF121212),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                        side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
-                      ),
-                      label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
-                  ),
-                );
-              }).toList(),
-            ),
-            Image.asset(info.image[0], height: 200, width: double.infinity, fit: BoxFit.cover,)
-          ],
+        child: InkWell(
+          onTap: () {
+            //TODO: ひどい実装
+            var index = WorksData().works.indexWhere((element) => element.head == info.head);
+            if(index >= 0) {
+              Navigator.of(context).pushNamed(
+                "/works",
+                arguments: NavigateWorksArgument(index.toString())
+              );
+            }
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ListTile(
+                title: Text(info.title, style: BaseTextStyles.h4,),
+                subtitle: Text(info.author ?? "", style: BaseTextStyles.subtitle1,),
+              ),
+              Wrap(
+                alignment: WrapAlignment.start,
+                children: info.genres.map((genre) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Chip(
+                      backgroundColor: Color(0xFF121212),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                          side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
+                        ),
+                        label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                    ),
+                  );
+                }).toList(),
+              ),
+              info.image.isEmpty
+                  ? Container(
+                      height: 200,
+                      child: Center(child: Text("No Image", style: BaseTextStyles.plain,),),
+                    )
+                  : Image.asset(info.image[0], height: 200, width: double.infinity, fit: BoxFit.cover,)
+            ],
+          ),
         ),
-      ),
+      ).showCursorOnHover,
     );
   }
 
-  Widget workCardForMobile(WorkInfo info) {
+  Widget workCardForMobile(WorkInfo info, context) {
     return Padding(
       padding: EdgeInsets.all(8.0),
       child: Container(
         child: Card(
           color: Color(0x17ffffff),
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 2,
-                    child: ListTile(
-                      title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
-                      subtitle: AutoSizeText(info.comment ?? info.author, style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+          child: InkWell(
+            onTap: () {
+              //TODO: ひどい実装
+              var index = WorksData().works.indexWhere((element) => element.head == info.head);
+              if(index >= 0) {
+                Navigator.of(context).pushNamed(
+                    "/works",
+                    arguments: NavigateWorksArgument(index.toString())
+                );
+              }
+            },
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: ListTile(
+                        title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
+                        subtitle: AutoSizeText(info.author ?? "", style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      children: info.genres.map((genre) {
-                        return Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Chip(
-                              backgroundColor: Color(0xFF121212),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                                  side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
-                              ),
-                              label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
-                          ),
-                        );
-                      }).toList(),
+                    Expanded(
+                      flex: 2,
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        children: info.genres.map((genre) {
+                          return Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Chip(
+                                backgroundColor: Color(0xFF121212),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                                    side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
+                                ),
+                                label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              AspectRatio(
-                aspectRatio: 4/1,
-                  child: Image.asset(info.image[0], fit: BoxFit.fitWidth,)
-              )
-            ],
+                  ],
+                ),
+                AspectRatio(
+                  aspectRatio: 4/1,
+                    child: info.image.isEmpty
+                        ? Center(child: Text("No Image", style: BaseTextStyles.plain,),)
+                        : Image.asset(info.image[0], fit: BoxFit.fitWidth,)
+                )
+              ],
+            ),
           ),
-        ),
+        ).showCursorOnHover,
       ),
     );
   }

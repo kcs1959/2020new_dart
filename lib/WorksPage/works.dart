@@ -34,4 +34,12 @@ class WorksData {
   static WorkInfo random() {
     return _works[Random().nextInt(_works.length)];
   }
+
+  static List<WorkInfo> pickUp(int length) {
+    var shuffled = <WorkInfo>[]..addAll(_works)..shuffle();
+
+    if(length > shuffled.length) return shuffled;
+
+    return shuffled.getRange(0, length).toList();
+  }
 }

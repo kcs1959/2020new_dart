@@ -23,7 +23,6 @@ class WorksTile extends StatelessWidget {
               FastNavigator().pushNamed(
                   Navigator.of(context),
                   RouteSettings(name: "/works/detail", arguments: info),
-                  "/works/detail",
                   false
               );
             },
