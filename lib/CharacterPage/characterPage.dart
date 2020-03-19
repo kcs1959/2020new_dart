@@ -4,6 +4,7 @@ import 'package:kcs_2020_shinkan_web/CharacterPage/characterContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class CharacterPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -28,7 +29,7 @@ class CharacterPage extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 20.0
                     ),
-                  ),
+                  ).safeText(),
                   menuColor: Color(0xFF004D40),
                 ),
                 CharacterContentView(deviceInfo: deviceInfo,),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class GroupWebPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -25,19 +26,22 @@ class GroupWebPage extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text("Web班", style: BaseTextStyles.h1(deviceInfo),),
+                      child: Text("Web班", style: BaseTextStyles.h1(deviceInfo),).safeText(),
                     ),
                     Image.asset("image/groups/web.jpg", fit: BoxFit.fitWidth,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Web班ではサイトの作り方から最新フレームワークの習得まで幅広い技術を勉強しています。\n  Web技術は学習コストなどの理由から敬遠されがちですが これらは使いこなせれば非常に実用的なものです。KCSには経験者や同じ目標を持つ仲間の中で互助的に学ぶ環境があります。\n  広く深いWebの世界に触れてみませんか?", style: BaseTextStyles.plain,),
+                      child: Text(
+                        "　Web班ではサイトの作り方から最新フレームワークの習得まで幅広い技術を勉強しています。\n  Web技術は学習コストなどの理由から敬遠されがちですが これらは使いこなせれば非常に実用的なものです。KCSには経験者や同じ目標を持つ仲間の中で互助的に学ぶ環境があります。\n  広く深いWebの世界に触れてみませんか?",
+                        style: BaseTextStyles.plain,
+                      ).safeText(),
                     ),
                     RaisedButton(
                       color: Color(0x61000000),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("閉じる", style: BaseTextStyles.button,),
+                      child: Text("閉じる", style: BaseTextStyles.button,).safeText(),
                     )
                   ],
                 );

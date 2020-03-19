@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class CharacterContentView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -42,7 +43,7 @@ class CharacterContentView extends StatelessWidget {
                               child: Text(
                                 "KCSちゃん",
                                 style: BaseTextStyles.h2CharacterBlue,
-                              ),
+                              ).safeText(),
                             ),
                             IconButton(
                               onPressed: () {
@@ -59,7 +60,7 @@ class CharacterContentView extends StatelessWidget {
                           child: Text(
                             "KCSのマスコットキャラ。数多くの部員の作品に登場する大人気キャラ！！",
                             style: BaseTextStyles.plainCharacterBlue,
-                          ),
+                          ).safeText(),
                         ),
                         Expanded(
                           flex: 1,
@@ -90,14 +91,14 @@ class CharacterContentView extends StatelessWidget {
                           child: Text(
                             "KCSドラゴン",
                             style: BaseTextStyles.h2CharacterRed,
-                          ),
+                          ).safeText(),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
                             "たまに出番がある",
                             style: BaseTextStyles.plainCharacterRed,
-                          ),
+                          ).safeText(),
                         ),
                         Expanded(
                           flex: 1,
@@ -138,7 +139,7 @@ class CharacterContentView extends StatelessWidget {
                                   "KCSちゃん",
                                   maxLines: 1,
                                   style: BaseTextStyles.h2CharacterBlue,
-                                ),
+                                ).safeText(),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -147,7 +148,7 @@ class CharacterContentView extends StatelessWidget {
                                   maxLines: 3,
                                   style: BaseTextStyles.plainCharacterBlue,
                                   textAlign: TextAlign.center,
-                                ),
+                                ).safeText(),
                               ),
                             ],
                           ),
@@ -185,7 +186,7 @@ class CharacterContentView extends StatelessWidget {
                                   "KCSドラゴン",
                                   maxLines: 1,
                                   style: BaseTextStyles.h2CharacterRed,
-                                ),
+                                ).safeText(),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16.0),
@@ -193,7 +194,7 @@ class CharacterContentView extends StatelessWidget {
                                   "たまに出番がある",
                                   maxLines: 3,
                                   style: BaseTextStyles.plainCharacterRed,
-                                ),
+                                ).safeText(),
                               ),
                             ],
                           ),

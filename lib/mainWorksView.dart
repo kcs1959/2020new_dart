@@ -9,6 +9,7 @@ import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainWorksView extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -42,7 +43,7 @@ class _MainWorksViewState extends State<MainWorksView> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("2019年度作品集", style: BaseTextStyles.h1(widget.deviceInfo),),
+              Text("2019年度作品集", style: BaseTextStyles.h1(widget.deviceInfo),).safeText(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                 child: SelectableText(
@@ -97,8 +98,8 @@ class _MainWorksViewState extends State<MainWorksView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ListTile(
-                title: Text(info.title, style: BaseTextStyles.h4,),
-                subtitle: Text(info.author ?? "", style: BaseTextStyles.subtitle1,),
+                title: Text(info.title, style: BaseTextStyles.h4,).safeText(),
+                subtitle: Text(info.author ?? "", style: BaseTextStyles.subtitle1,).safeText(),
               ),
               Wrap(
                 alignment: WrapAlignment.start,
@@ -111,7 +112,7 @@ class _MainWorksViewState extends State<MainWorksView> {
                           borderRadius: BorderRadius.all(Radius.circular(100.0)),
                           side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
                         ),
-                        label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                        label: Text(genre.getString(), style: BaseTextStyles.subtitle1,).safeText()
                     ),
                   );
                 }).toList(),
@@ -153,8 +154,8 @@ class _MainWorksViewState extends State<MainWorksView> {
                     Expanded(
                       flex: 2,
                       child: ListTile(
-                        title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,),
-                        subtitle: AutoSizeText(info.author ?? "", style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,),
+                        title: AutoSizeText(info.title, style: BaseTextStyles.h4, textAlign: TextAlign.center,).safeText(),
+                        subtitle: AutoSizeText(info.author ?? "", style: BaseTextStyles.subtitle1, textAlign: TextAlign.center,).safeText(),
                       ),
                     ),
                     Expanded(
@@ -170,7 +171,7 @@ class _MainWorksViewState extends State<MainWorksView> {
                                     borderRadius: BorderRadius.all(Radius.circular(100.0)),
                                     side: BorderSide(width: 1.0, color: Color(0xFFaaaaaa))
                                 ),
-                                label: Text(genre.getString(), style: BaseTextStyles.subtitle1,)
+                                label: Text(genre.getString(), style: BaseTextStyles.subtitle1,).safeText()
                             ),
                           );
                         }).toList(),

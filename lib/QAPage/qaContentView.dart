@@ -6,6 +6,7 @@ import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 import 'package:kcs_2020_shinkan_web/wid/floatingOnHoverCard.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class QAContentView extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -75,7 +76,7 @@ class _QAContentViewState extends State<QAContentView> {
                 itemBuilder: (context, index) {
                   switch(index) {
                     case 0:
-                      return Text("よくある質問", style: BaseTextStyles.h1(widget.deviceInfo), textAlign: TextAlign.center,);
+                      return Text("よくある質問", style: BaseTextStyles.h1(widget.deviceInfo), textAlign: TextAlign.center,).safeText();
                     case 1:
                       return TextField(
                         controller: _textController,
@@ -96,7 +97,7 @@ class _QAContentViewState extends State<QAContentView> {
                     return Text(
                       "その他疑問のある方は、以下からも質問できます。",
                       style: BaseTextStyles.h4,
-                    );
+                    ).safeText();
                   }
                   else if(index == _showQuestions.length + 2) {
                     return Wrap(
@@ -137,14 +138,14 @@ Widget qaCard(context, QAndA question) {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: CircleAvatar(
-                    child: Text("Q"),
+                    child: Text("Q").safeText(),
                   ),
                 ),
                 Expanded(
                   child: Text(
                       question.question,
                       style: BaseTextStyles.question
-                  ),
+                  ).safeText(),
                 ),
               ],
             ),
@@ -156,14 +157,14 @@ Widget qaCard(context, QAndA question) {
                     padding: const EdgeInsets.only(right: 8.0),
                     child: CircleAvatar(
                       backgroundColor: Color(0x99c62828),
-                      child: Text("A"),
+                      child: Text("A").safeText(),
                     ),
                   ),
                   Expanded(
                     child: Text(
                         question.answer,
                         style: BaseTextStyles.plain
-                    ),
+                    ).safeText(),
                   ),
                 ],
               ),
@@ -190,8 +191,8 @@ Widget linkCard(String title, String subtitle, Widget image, VoidCallback linkTo
           children: <Widget>[
             ListTile(
               leading: image,
-              title: Text(title, style: BaseTextStyles.button,),
-              subtitle: Text(subtitle, style: BaseTextStyles.subtitle1,),
+              title: Text(title, style: BaseTextStyles.button,).safeText(),
+              subtitle: Text(subtitle, style: BaseTextStyles.subtitle1,).safeText(),
             ),
             Padding(
               padding: EdgeInsets.all(8.0),

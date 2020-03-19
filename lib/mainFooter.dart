@@ -7,6 +7,7 @@ import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainFooter extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -66,7 +67,7 @@ class MainFooter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Image.asset("image/kcslogo.png", width: 200,),
-        Text("Keio Computer Society", style: BaseTextStyles.plainTint(tint: tint),),
+        Text("Keio Computer Society", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
         Align(
           alignment: Alignment.center,
           child: Column(
@@ -88,7 +89,7 @@ class MainFooter extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("@kcs1959", style: BaseTextStyles.plainTint(tint: tint),),
+                      child: Text("@kcs1959", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
                     ),
                   ],
                 ),
@@ -109,7 +110,7 @@ class MainFooter extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("github.com/kcs1959", style: BaseTextStyles.plainTint(tint: tint),),
+                      child: Text("github.com/kcs1959", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
                     ),
                   ],
                 ),
@@ -130,7 +131,7 @@ class MainFooter extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("kcs1959.jp", style: BaseTextStyles.plainTint(tint: tint),),
+                      child: Text("kcs1959.jp", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
                     ),
                   ],
                 ),
@@ -150,7 +151,7 @@ class MainFooter extends StatelessWidget {
         child: AutoSizeText(
           "ページをシェアしよう",
           style: BaseTextStyles.h4Tint(tint: tint),
-        ),
+        ).safeText(),
       ),
       Row(
         mainAxisSize: MainAxisSize.min,
@@ -184,7 +185,7 @@ class MainFooter extends StatelessWidget {
                         title: Text(
                           "共有する",
                           style: BaseTextStyles.h4,
-                        ),
+                        ).safeText(),
                         content: SingleChildScrollView(
                           child: Column(
                             children: <Widget>[
@@ -210,7 +211,7 @@ class MainFooter extends StatelessWidget {
                               child: Text(
                                 "閉じる",
                                 style: BaseTextStyles.button,
-                              ),
+                              ).safeText(),
                               onPressed: () => Navigator.pop(context)
                           ).showCursorOnHover
                         ],
@@ -244,48 +245,48 @@ class MainFooter extends StatelessWidget {
         Text(
           "サイトマップ",
           style: BaseTextStyles.h4Tint(tint: tint),
-        ),
+        ).safeText(),
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/main");
           },
-          child: Text("Top", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("Top", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/groups");
           },
-          child: Text("班紹介", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("班紹介", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/schedule");
           },
-          child: Text("年間行事", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("年間行事", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/character");
           },
-          child: Text("キャラクター紹介", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("キャラクター紹介", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/shinkan");
           },
-          child: Text("新歓情報", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("新歓情報", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/works");
           },
-          child: Text("作品集", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("作品集", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
         FlatButton(
           onPressed: () {
             Navigator.of(context).pushNamed("/questions");
           },
-          child: Text("よくある質問", style: BaseTextStyles.buttonTint(tint: tint),),
+          child: Text("よくある質問", style: BaseTextStyles.buttonTint(tint: tint),).safeText(),
         ).showCursorOnHover,
       ],
     );
@@ -303,8 +304,8 @@ class MainFooter extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Image.asset("image/fastlogo.png", height: 100,),
-              Text("Fastriver_org", style: BaseTextStyles.plainTint(tint: tint),),
-              Text("Coding/Design", style: BaseTextStyles.subtitle1Tint(tint: tint),),
+              Text("Fastriver_org", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
+              Text("Coding/Design", style: BaseTextStyles.subtitle1Tint(tint: tint),).safeText(),
             ],
           ),
         ).showCursorOnHover,
@@ -316,8 +317,8 @@ class MainFooter extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset("image/orfevrelogo.jpg", height: 84,),
               ),
-              Text("Yuuki Hyodo", style: BaseTextStyles.plainTint(tint: tint),),
-              Text("Design/Image", style: BaseTextStyles.subtitle1Tint(tint: tint),),
+              Text("Yuuki Hyodo", style: BaseTextStyles.plainTint(tint: tint),).safeText(),
+              Text("Design/Image", style: BaseTextStyles.subtitle1Tint(tint: tint),).safeText(),
             ],
           ),
         ).showCursorOnHover,
@@ -328,7 +329,7 @@ class MainFooter extends StatelessWidget {
   Widget copyRight() {
     return Padding(
       padding: EdgeInsets.all(8.0),
-        child: Text("©2020 KCS::Keio Computer Society", style: BaseTextStyles.subtitle1Tint(tint: tint),)
+        child: Text("©2020 KCS::Keio Computer Society", style: BaseTextStyles.subtitle1Tint(tint: tint),).safeText()
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class ScheduleLayout extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -54,14 +55,14 @@ class _ScheduleLayoutState extends State<ScheduleLayout> {
                 child: AutoSizeText(
                   widget.title, style: BaseTextStyles.h1Tint(widget.deviceInfo, tint: Color(0xFF1A237E)),
                   maxLines: 1,
-                ),
+                ).safeText(),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   widget.content,
                   style: BaseTextStyles.plainTint(tint:  Color(0xFF1A237E)),
-                ),
+                ).safeText(),
               ),
             ],
           ),
@@ -138,7 +139,7 @@ class _ScheduleLayoutState extends State<ScheduleLayout> {
             child: CircleAvatar(
               radius: 48,
               backgroundColor: Color(0xFF3F51B5),
-              child: Text(text, style: BaseTextStyles.h2,),
+              child: Text(text, style: BaseTextStyles.h2,).safeText(),
             ),
           )
         ],

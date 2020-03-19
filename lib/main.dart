@@ -109,15 +109,16 @@ class MyAppState extends State<MyApp> {
       title: 'KCS::Keio Computer Society 新歓特設サイト',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        //fontFamily: "Noto Sans JP",
+        fontFamily: "Noto Sans JP",
       ),
-        /*localizationsDelegates: [
+        localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: [
           Locale('ja', 'JP'),
-        ],*/
+        ],
+        ],
         onGenerateRoute: FastNavigator().getOnGenerateRoute,
         routes: FastNavigator().getRoutes,
         /*

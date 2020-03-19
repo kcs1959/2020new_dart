@@ -1,9 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class MainWhatIsKCSView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -27,7 +29,7 @@ class MainWhatIsKCSView extends StatelessWidget {
               Text(
                 "KCSって何?",
                 style: BaseTextStyles.h1(deviceInfo),
-              ),
+              ).safeText(),
               Padding(
                 padding: EdgeInsets.all(32),
                 child: Center(
@@ -89,13 +91,31 @@ class MainWhatIsKCSView extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               Expanded(
-                                child: Text("班紹介", style: BaseTextStyles.h2,),
+                                child: Text("班紹介", style: BaseTextStyles.h2,).safeText(),
                               ),
                               Icon(Icons.call_made, color: Color(0x99ffffff),)
                             ],
                           ),
                         ),
-                        Image.asset("image/groupintroduce.jpg", fit: BoxFit.fitWidth,),
+                        AspectRatio(
+                          aspectRatio: 3/1,
+                            child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText(
+                                      "AI/Unity/Web/Blender/DTM",
+                                      style: TextStyle(
+                                          fontFamily: "CorporateLogo",
+                                          color: Colors.white60,
+                                          fontSize: 50.0
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/groupintroduce.jpg", fit: BoxFit.fitWidth,))
+                                ],
+                            )
+                        ),
                       ],
                     ),
                   ).showCursorOnHover,
@@ -111,64 +131,70 @@ class MainWhatIsKCSView extends StatelessWidget {
               Text(
                 "基本情報",
                 style: BaseTextStyles.h2,
-              ),
+                textAlign: TextAlign.center,
+              ).safeText(),
               ListTile(
-                title: Text("概要", style: BaseTextStyles.h4,),
+                title: Text(
+                  "概要",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("慶應義塾大学公認団体 独立団体 Computer Society", style: BaseTextStyles.plain),
+                  child: Text(
+                      "慶應義塾大学公認団体 独立団体 Computer Society",
+                      style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("会員", style: BaseTextStyles.h4,),
+                title: Text(
+                  "会員",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("55名", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "55名",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("活動場所", style: BaseTextStyles.h4,),
+                title: Text(
+                  "活動場所",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("日吉キャンパス塾生会館213号室/その他日吉・矢上内教室", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "日吉キャンパス塾生会館213号室/その他日吉・矢上内教室",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ListTile(
-                title: Text("活動日/時間", style: BaseTextStyles.h4,),
+                title: Text(
+                  "活動日/時間",
+                  style: BaseTextStyles.h4,
+                  textAlign: TextAlign.center,
+                ).safeText(),
                 subtitle: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("不定(各活動の参加者で調整)", style: BaseTextStyles.plain,),
+                  child: Text(
+                    "不定(各活動の参加者で調整)",
+                    style: BaseTextStyles.plain,
+                    textAlign: TextAlign.center,
+                  ).safeText(),
                 ),
               ),
               ResponsiveGridRow(
-                children: [/*
-                  ResponsiveGridCol(
-                    lg: 12,
-                    md: 6,
-                    sm: 12,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Card(
-                        color: Color(0x17ffffff),
-                        child: Column(
-                          children: <Widget>[
-                            Image.asset("image/group_tekitou.png", fit: BoxFit.fitWidth,),
-                            Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Text("班紹介", style: BaseTextStyles.h2,),
-                                  ),
-                                  Icon(Icons.open_in_new, color: Color(0x99ffffff),)
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),*/
+                children: [
                   ResponsiveGridCol(
                     lg: 6,
                     md: 6,
@@ -184,7 +210,18 @@ class MainWhatIsKCSView extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(16.0))
                           ),
-                          child: Image.asset("image/events.jpg", fit: BoxFit.fitWidth),
+                          child: AspectRatio(
+                            aspectRatio: 3/1,
+                              child: Stack(
+                                children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText("年間行事", style: BaseTextStyles.h2,),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/events.jpg", fit: BoxFit.fitWidth)),
+                                ],
+                              )
+                          ),
                         ).showCursorOnHover,
                       ),
                     ),
@@ -204,7 +241,18 @@ class MainWhatIsKCSView extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(16.0))
                           ),
-                          child: Image.asset("image/characters.jpg", fit: BoxFit.fitWidth),
+                          child: AspectRatio(
+                              aspectRatio: 3/1,
+                              child: Stack(
+                                children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: AutoSizeText("キャラクター紹介", style: BaseTextStyles.h2,),
+                                  ),
+                                  Positioned.fill(child: Image.asset("image/characters.jpg", fit: BoxFit.fitWidth),),
+                                ],
+                              )
+                          ),
                         ).showCursorOnHover,
                       ),
                     ),

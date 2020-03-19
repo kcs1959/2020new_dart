@@ -5,6 +5,7 @@ import 'package:kcs_2020_shinkan_web/GroupPage/groupContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
+import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class GroupPage extends StatelessWidget {
   DeviceInfo deviceInfo;
@@ -30,7 +31,7 @@ class GroupPage extends StatelessWidget {
                         color: Colors.white,
                         fontSize: 40.0
                     ),
-                  ),
+                  ).safeText(),
                 ),
                 GroupContentView(deviceInfo: deviceInfo,),
                 MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -班紹介 \n https://kcs1959.github.io/2020new/#/groups/",)
