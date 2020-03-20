@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:kcs_2020_shinkan_web/GroupPage/groupPage.dart';
 import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
 import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
@@ -259,7 +260,7 @@ class MainTopPosterView extends StatelessWidget {
             bottom: 30 * positionBias, left: 100 * positionBias,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("/groups");
+                Navigator.of(context).pushNamed("/groups", arguments: NavigateGroupsArgument("/web"));
               },
               child: Container(
                   width: iconHeight, height: iconHeight,
@@ -271,7 +272,7 @@ class MainTopPosterView extends StatelessWidget {
             bottom: 450 * positionBias, left: 150 * positionBias,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("/groups");
+                Navigator.of(context).pushNamed("/groups", arguments: NavigateGroupsArgument("/unity"));
               },
               child: Container(
                   width: iconHeight, height: iconHeight,
@@ -283,7 +284,7 @@ class MainTopPosterView extends StatelessWidget {
             bottom: 280 * positionBias, left: 40 * positionBias,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("/groups");
+                Navigator.of(context).pushNamed("/groups", arguments: NavigateGroupsArgument("/dtm"));
               },
               child: Container(
                   width: iconHeight, height: iconHeight,
@@ -295,7 +296,7 @@ class MainTopPosterView extends StatelessWidget {
             bottom: 400 * positionBias, right: 130 * positionBias,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("/groups");
+                Navigator.of(context).pushNamed("/groups", arguments: NavigateGroupsArgument("/blender"));
               },
               child: Container(
                   width: iconHeight, height: iconHeight,
@@ -307,7 +308,7 @@ class MainTopPosterView extends StatelessWidget {
             bottom: 220 * positionBias, right: 50 * positionBias,
             child: InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed("/groups");
+                Navigator.of(context).pushNamed("/groups", arguments: NavigateGroupsArgument("/ai"));
               },
               child: Container(
                   width: iconHeight, height: iconHeight,
