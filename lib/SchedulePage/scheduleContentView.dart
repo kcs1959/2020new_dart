@@ -2,9 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/SchedulePage/scheduleLayout.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
-import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class ScheduleContentView extends StatefulWidget {
@@ -39,7 +38,6 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
 
   @override
   Widget build(BuildContext context) {
-    //return UnderConstructionView(deviceInfo: deviceInfo,);
     var pages = [
       Stack(
         children: <Widget>[
@@ -54,25 +52,19 @@ class _ScheduleContentViewState extends State<ScheduleContentView> {
                   style: BaseTextStyles.h1Tint(widget.deviceInfo, tint: Color(0xFF1A237E)),
                 ).safeText(),
                 IconButton(
-                  //onPressed: null,
                   onPressed: () {
-                              setState(() {
-                                pageViewController.animateToPage(
-                                    1,
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.easeInOut);
-                              });
-                            },
+                    setState(() {
+                      pageViewController.animateToPage(
+                          1,
+                          duration: const Duration(milliseconds: 1000),
+                          curve: Curves.easeInOut);
+                    });
+                  },
                   iconSize: 72.0,
                   color: Color(0xFF1A237E),
                   icon: Icon(Icons.trending_flat),
                   tooltip: "Swipe to Continue",
                 ),
-                /*AutoSizeText(
-                  "KCS2019年度の年間行事一覧です。\n今年は、何がここに刻まれるだろうか。",
-                  textAlign: TextAlign.center,
-                  style: BaseTextStyles.plainTint(tint: Color(0xFF1A237E)),
-                )*/
               ],
             ),
           ),

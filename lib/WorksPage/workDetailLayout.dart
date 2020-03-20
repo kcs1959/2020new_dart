@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 class WorkDetailLayout extends StatelessWidget {
   final List<Widget> children;
-  final String heroTag;
-  final Color color;
 
-  WorkDetailLayout({Key key, this.children, this.heroTag, this.color}): super(key: key);
+  WorkDetailLayout({Key key, this.children}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class WorkDetailLayout extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(32.0)),
             ),
             child: Container(
-              color: color,
+              color: Color(0xFF121212),
               child: Scrollbar(
                 child: SingleChildScrollView(
                   child: Column(

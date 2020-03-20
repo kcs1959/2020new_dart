@@ -1,12 +1,12 @@
 import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainQAView.dart';
 import 'package:kcs_2020_shinkan_web/mainShinkanView.dart';
 import 'package:kcs_2020_shinkan_web/mainTopPosterView.dart';
 import 'package:kcs_2020_shinkan_web/mainWhatIsKCSView.dart';
 import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/wid/DelayLoadingView.dart';
 import 'package:kcs_2020_shinkan_web/wid/DelayLoadingViewLite.dart';
 
@@ -166,23 +166,6 @@ class MainPageState extends State<MainPage> {
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints boxConstraints) {
           deviceInfo = DeviceInfo.measure(boxConstraints.biggest);
-          /*return PageView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[
-              MainTopPosterView(
-                deviceInfo: deviceInfo,
-                toWhat: toWhatListener,
-                toShinkan: toShinkanListener,
-                toWork: toWorkListener,
-                toQA: toQAListener,
-              ),
-              SingleChildScrollView(child: MainWhatIsKCSView(deviceInfo: deviceInfo,)),
-              SingleChildScrollView(child: MainShinkanView(deviceInfo: deviceInfo,)),
-              SingleChildScrollView(child: MainWorksView(deviceInfo: deviceInfo,)),
-              SingleChildScrollView(child: MainQAView(deviceInfo: deviceInfo,)),
-              MainFooter(deviceInfo: deviceInfo,),
-            ],
-          );*/
           return Scrollbar(
             child: SingleChildScrollView(
               controller: scrollController,
@@ -224,67 +207,12 @@ class MainPageState extends State<MainPage> {
                     waiting: waitingMainFooter,
                     child: MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -Top \n https://kcs1959.github.io/2020new/",),
                   )
-                  /*
-                  Q＆A
-                  footer
-                   */
                 ],
               ),
             ),
           );
         },
       ),
-      /*body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: <Widget>[
-            MainTopPosterView(key: mainTopKey, size: size,),
-          ],
-        ),
-      )*/
     );
-  }
-}
-
-enum DisplayAspect {
-  WIDE, NEAR_SQUARE, PORTRAIT
-}
-
-enum Device {
-  PC, PHONE
-}
-
-class DeviceInfo {
-  final DisplayAspect displayAspect;
-  final Device device;
-  final Size size;
-
-  DeviceInfo(this.displayAspect, this.device, this.size)
-      : assert(displayAspect != null),
-        assert(device != null),
-        assert(size != null);
-
-  static DeviceInfo measure(Size size) {
-    DisplayAspect aspect;
-    if(size.aspectRatio >= 4/3) {
-      aspect = DisplayAspect.WIDE;
-    }
-    else if(size.aspectRatio >= 1/1) {
-      aspect = DisplayAspect.NEAR_SQUARE;
-    }
-    else {
-      aspect = DisplayAspect.PORTRAIT;
-    }
-
-    Device device;
-
-    if(size.width > 769) {
-      device = Device.PC;
-    }
-    else {
-      device = Device.PHONE;
-    }
-
-    return DeviceInfo(aspect, device, size);
   }
 }

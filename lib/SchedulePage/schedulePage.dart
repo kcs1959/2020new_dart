@@ -2,7 +2,8 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/SchedulePage/scheduleContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
@@ -24,11 +25,7 @@ class SchedulePage extends StatelessWidget {
                   deviceInfo: deviceInfo,
                   title: Text(
                     "年間行事",
-                    style: TextStyle(
-                        fontFamily: "CorporateLogo",
-                        color: Color(0xFF1A237E),
-                        fontSize: 40.0
-                    ),
+                    style: BaseTextStyles.logoTint(tint: Color(0xFF1A237E)),
                   ).safeText(),
                   menuColor: Color(0xFF1A237E),
                 ),

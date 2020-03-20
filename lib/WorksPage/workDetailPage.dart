@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:easy_web_view/easy_web_view.dart';
 import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workDetailLayout.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
-import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
+import 'package:kcs_2020_shinkan_web/util/WorkGenre.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/ext/indexedMap.dart';
 
 class WorkDetailPage extends StatefulWidget {
   @override
@@ -57,8 +56,6 @@ class WorkDetailPageState extends State<WorkDetailPage> {
             builder: (context, boxConstraint) {
               deviceInfo = DeviceInfo.measure(boxConstraint.biggest);
               return WorkDetailLayout(
-                heroTag: "hoge",
-                color: Color(0xFF121212),
                 children: <Widget>[
                   AspectRatio(
                     aspectRatio: 16/9,
@@ -205,23 +202,5 @@ class WorkDetailPageState extends State<WorkDetailPage> {
         ),
       ),
     );
-  }
-}
-
-extension MyList<E, T> on List<T> {
-  //https://stackoverflow.com/questions/54898767/enumerate-or-map-through-a-list-with-index-and-value-in-dart のやつを拡張関数に書き換えたやつ
-  List<E> mapIndexed<E>(E Function(int index, T item) f) {
-    var index = 0;
-    var ret = List<E>();
-
-    for (final item in this) {
-      ret.add(f(index, item));
-      index = index + 1;
-    }
-    return ret;
-  }
-
-  List<T> nonNull() {
-    return this.where((t) => t != null).toList();
   }
 }

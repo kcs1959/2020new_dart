@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
-import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class WorksPage extends StatelessWidget {
   @override
@@ -58,11 +58,7 @@ class WorksPageCoreState extends State<WorksPageCore> {
                   deviceInfo: deviceInfo,
                   title: Text(
                     "作品集",
-                    style: TextStyle(
-                        fontFamily: "CorporateLogo",
-                        color: Colors.white,
-                        fontSize: 40.0
-                    ),
+                    style: BaseTextStyles.logo,
                   ),
                 ),
                 WorksContentView(deviceInfo: deviceInfo,),

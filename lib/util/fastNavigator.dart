@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class FastNavigator {
   static final FastNavigator _fastNavigator = FastNavigator._internal();
@@ -33,12 +33,3 @@ class FastNavigator {
 }
 
 typedef FastRouteFactory = Route<dynamic> Function(RouteSettings settings, Map<String, WidgetBuilder> routes);
-
-/*
-typedef RouteFactory = Route<dynamic> Function(RouteSettings settings);
-                      Navigator.of(context).push(PageRouteBuilder(
-                        pageBuilder: (_,__,___) => new GroupAIPage(),
-                        settings: RouteSettings(name: "/groups/ai"),
-                        opaque: false
-                      ));
- */

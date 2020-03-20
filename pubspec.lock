@@ -53,12 +53,10 @@ packages:
   clippy_flutter:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "933260fd212b8601eea24b129a78e41e2459552b"
-      url: "git://github.com/organic-nailer/clippy_flutter.git"
-    source: git
-    version: "1.1.0"
+      name: clippy_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
   collection:
     dependency: transitive
     description:
@@ -111,12 +109,10 @@ packages:
   expanded_grid:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "06bcd0b2058d419db368ddd49938fe36a101abe0"
-      url: "git://github.com/organic-nailer/expanded_grid.git"
-    source: git
-    version: "0.0.1"
+      name: expanded_grid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   fb_auth:
     dependency: "direct main"
     description:
@@ -172,7 +168,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_markdown:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_markdown
       url: "https://pub.dartlang.org"

@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 class ScheduleLayout extends StatefulWidget {
   final DeviceInfo deviceInfo;

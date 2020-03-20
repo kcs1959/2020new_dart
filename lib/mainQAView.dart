@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/questions.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 class MainQAView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -42,10 +42,10 @@ class MainQAView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: Questions.getList.getRange(0, 3).map((qa) {
                     return ListTile(
-                        title: Text("Q. ${qa.question}", style: BaseTextStyles.qasummary,),
+                        title: Text("Q. ${qa.question}", style: BaseTextStyles.qasummary,).safeText(),
                       subtitle: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text("A. ${qa.answer}", style: BaseTextStyles.plain,),
+                        child: Text("A. ${qa.answer}", style: BaseTextStyles.plain,).safeText(),
                       ),
                     );
                   }).toList(),

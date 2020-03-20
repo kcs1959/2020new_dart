@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
-import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
 import 'package:kcs_2020_shinkan_web/wid/scaleOnHover.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
@@ -51,7 +50,7 @@ class WorksTile extends StatelessWidget {
                     info.head,
                     maxLines: 1,
                     style: TextStyle(
-                      fontSize: 60,
+                      fontSize: 100,
                       fontFamily: "CorporateLogo",
                       color: Color(0xDEFFFFFF)
                     )

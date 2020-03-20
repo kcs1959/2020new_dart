@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/questions.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
-import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 import 'package:kcs_2020_shinkan_web/wid/floatingOnHoverCard.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/wid/linkCard.dart';
 
 class QAContentView extends StatefulWidget {
   final DeviceInfo deviceInfo;
@@ -37,13 +37,11 @@ class _QAContentViewState extends State<QAContentView> {
   void _onChanged(String text) {
     print(text);
     if(text.isEmpty) {
-      print("empty");
       setState(() {
         _showQuestions = Questions.getList;
       });
     }
     else {
-      print("notEmpty ${Questions.getList.where((element) => element.question.contains(text) || element.answer.contains(text)).length}");
       setState(() {
         _showQuestions = Questions.getList.where((element) => element.question.contains(text) || element.answer.contains(text)).toList();
       });
@@ -52,7 +50,6 @@ class _QAContentViewState extends State<QAContentView> {
 
   @override
   Widget build(BuildContext context) {
-    //return UnderConstructionView(deviceInfo: deviceInfo,);
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
@@ -170,35 +167,6 @@ Widget qaCard(context, QAndA question) {
               ),
             ),
           ),
-        ),
-      ),
-    ),
-  );
-}
-
-Widget linkCard(String title, String subtitle, Widget image, VoidCallback linkTo) {
-  return Container(
-    padding: EdgeInsets.all(8.0),
-    width: 200,
-    child: FloatingOnHoverCard(
-      colorValue: 0x17FFFFFF,
-      child: InkWell(
-        splashColor: Color(0x0FFFFFFF),
-        onTap: linkTo,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            ListTile(
-              leading: image,
-              title: Text(title, style: BaseTextStyles.button,).safeText(),
-              subtitle: Text(subtitle, style: BaseTextStyles.subtitle1,).safeText(),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.open_in_new, color: Color(0x61FFFFFF),),
-            )
-          ],
         ),
       ),
     ),

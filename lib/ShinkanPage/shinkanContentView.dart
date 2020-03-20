@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 
 class ShinkanContentView extends StatelessWidget {
