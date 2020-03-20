@@ -2,6 +2,7 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
 import 'package:kcs_2020_shinkan_web/mainQAView.dart';
+import 'package:kcs_2020_shinkan_web/mainScrollKeyController.dart';
 import 'package:kcs_2020_shinkan_web/mainShinkanView.dart';
 import 'package:kcs_2020_shinkan_web/mainTopPosterView.dart';
 import 'package:kcs_2020_shinkan_web/mainWhatIsKCSView.dart';
@@ -16,16 +17,9 @@ class MainPage extends StatefulWidget {
 }
 
 class MainPageState extends State<MainPage> {
-  ScrollController scrollController;
+  MainScrollController mainScrollController;
 
   DeviceInfo deviceInfo;
-
-  GlobalKey mainTopKey = GlobalKey();
-  GlobalKey mainWhatKey = GlobalKey();
-  GlobalKey mainShinkanKey = GlobalKey();
-  GlobalKey mainWorksKey = GlobalKey();
-  GlobalKey mainQAKey = GlobalKey();
-  GlobalKey mainFooterKey = GlobalKey();
 
   bool waitingMainTop = false;
   bool waitingMainWhat = true;
@@ -37,123 +31,65 @@ class MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    scrollController = ScrollController();
-    scrollController.addListener(scrollListener);
+    mainScrollController = MainScrollController();
+    mainScrollController.addListener(scrollListener);
     analytics().logEvent("PAGE_MAIN", null);
   }
 
   void scrollListener() {
-    final position = scrollController.offset;
     final displayHeight = deviceInfo.size.height;
-    final topHeight = mainTopKey.currentContext.size.height;
-    final whatHeight = mainWhatKey.currentContext.size.height;
-    final shinkanHeight = mainShinkanKey.currentContext.size.height;
-    final workHeight = mainWorksKey.currentContext.size.height;
-    final qaHeight = mainQAKey.currentContext.size.height;
-    final footerHeight = mainFooterKey.currentContext.size.height;
 
-    final topPosition = position;
-    final bottomPosition = position + displayHeight;
-
-    final topOfTop = 0;
-    final topOfWhat = topHeight;
-    final topOfShinkan = topHeight + whatHeight;
-    final topOfWork = topHeight + whatHeight + shinkanHeight;
-    final topOfQA = topHeight + whatHeight + shinkanHeight + workHeight;
-    final topOfFooter = topHeight + whatHeight + shinkanHeight + workHeight + qaHeight;
-
-    final inTop = topOfTop <= bottomPosition && topOfWhat >= topPosition;
-    final inWhat = topOfWhat <= bottomPosition && topOfShinkan >= topPosition;
-    final inShinkan = topOfShinkan <= bottomPosition && topOfWork >= topPosition;
-    final inWork = topOfWork <= bottomPosition && topOfQA >= topPosition;
-    final inQA = topOfQA <= bottomPosition && topOfFooter >= topPosition;
-    final inFooter = topOfFooter <= bottomPosition;
-
-    if(waitingMainTop && inTop) {//画面の上部がMainTop上にあったら
+    if(waitingMainTop == mainScrollController.inTop(displayHeight)) {
+      setState(() { waitingMainTop = !waitingMainTop; });
+    }
+    if(waitingMainWhat == mainScrollController.inWhat(displayHeight)) {
+      setState(() { waitingMainWhat = !waitingMainWhat; });
+    }
+    if(waitingMainShinkan == mainScrollController.inShinkan(displayHeight)) {
+      setState(() { waitingMainShinkan = !waitingMainShinkan; });
+    }
+    if(waitingMainWork == mainScrollController.inWork(displayHeight)) {
+      setState(() { waitingMainWork = !waitingMainWork; });
+    }
+    if(waitingMainQA == mainScrollController.inQA(displayHeight)) {
+      setState(() { waitingMainQA = !waitingMainQA; });
+    }
+    if(waitingMainFooter == mainScrollController.inFooter(displayHeight)) {
+      setState(() { waitingMainFooter = !waitingMainFooter; });
+    }
+/*
+    if(waitingMainTop && mainScrollController.inTop(displayHeight)) {//画面の上部がMainTop上にあったら
       setState(() { waitingMainTop = false; });
     }
     if(!waitingMainTop && !inTop) {//画面の上部がMainTopより下だったら
       setState(() { waitingMainTop = true; });
-    }
-
-    if(waitingMainWhat && inWhat) {
-      setState(() { waitingMainWhat = false; });
-    }
-    if(!waitingMainWhat && !inWhat) {
-      setState(() { waitingMainWhat = true; });
-    }
-
-    if(waitingMainShinkan && inShinkan) {
-      setState(() { waitingMainShinkan = false; });
-    }
-    if(!waitingMainShinkan && !inShinkan) {
-      setState(() { waitingMainShinkan = true; });
-    }
-
-    if(waitingMainWork && inWork) {
-      setState(() { waitingMainWork = false; });
-    }
-    if(!waitingMainWork && !inWork) {
-      setState(() { waitingMainWork = true; });
-    }
-
-    if(waitingMainQA && inQA) {
-      setState(() { waitingMainQA = false; });
-    }
-    if(!waitingMainQA && !inQA) {
-      setState(() { waitingMainQA = true; });
-    }
-
-    if(waitingMainFooter && inFooter) {
-      setState(() { waitingMainFooter = false; });
-    }
-    if(!waitingMainFooter && !inFooter) {
-      setState(() { waitingMainFooter = true; });
-    }
+    }*/
   }
 
   void toWhatListener() {
-    final topHeight = mainTopKey.currentContext.size.height;
-    final topOfWhat = topHeight;
-
-    scrollController.animateTo(
-        topOfWhat,
+    mainScrollController.controller.animateTo(
+        mainScrollController.topOfWhat,
         duration: const Duration(milliseconds: 500),
       curve: Curves.ease
     );
   }
   void toShinkanListener() {
-    final topHeight = mainTopKey.currentContext.size.height;
-    final whatHeight = mainWhatKey.currentContext.size.height;
-    final topOfShinkan = topHeight + whatHeight;
-
-    scrollController.animateTo(
-        topOfShinkan,
+    mainScrollController.controller.animateTo(
+        mainScrollController.topOfShinkan,
         duration: const Duration(milliseconds: 500),
         curve: Curves.ease
     );
   }
   void toWorkListener() {
-    final topHeight = mainTopKey.currentContext.size.height;
-    final whatHeight = mainWhatKey.currentContext.size.height;
-    final shinkanHeight = mainShinkanKey.currentContext.size.height;
-    final topOfWork = topHeight + whatHeight + shinkanHeight;
-
-    scrollController.animateTo(
-        topOfWork,
+    mainScrollController.controller.animateTo(
+        mainScrollController.topOfWork,
         duration: const Duration(milliseconds: 500),
         curve: Curves.ease
     );
   }
   void toQAListener() {
-    final topHeight = mainTopKey.currentContext.size.height;
-    final whatHeight = mainWhatKey.currentContext.size.height;
-    final shinkanHeight = mainShinkanKey.currentContext.size.height;
-    final workHeight = mainWorksKey.currentContext.size.height;
-    final topOfQA = topHeight + whatHeight + shinkanHeight + workHeight;
-
-    scrollController.animateTo(
-        topOfQA,
+    mainScrollController.controller.animateTo(
+        mainScrollController.topOfQA,
         duration: const Duration(milliseconds: 500),
         curve: Curves.ease
     );
@@ -168,11 +104,11 @@ class MainPageState extends State<MainPage> {
           deviceInfo = DeviceInfo.measure(boxConstraints.biggest);
           return Scrollbar(
             child: SingleChildScrollView(
-              controller: scrollController,
+              controller: mainScrollController.controller,
               child: Column(
                 children: <Widget>[
                   DelayLoadingView(
-                      key: mainTopKey,
+                      key: mainScrollController.topKey,
                       waiting: waitingMainTop,
                       child: MainTopPosterView(
                         deviceInfo: deviceInfo,
@@ -183,27 +119,27 @@ class MainPageState extends State<MainPage> {
                       )
                   ),
                   DelayLoadingViewLite(
-                    key: mainWhatKey,
+                    key: mainScrollController.whatKey,
                       waiting: waitingMainWhat,
                       child: MainWhatIsKCSView(deviceInfo: deviceInfo,)
                   ),
                   DelayLoadingViewLite(
-                    key: mainShinkanKey,
+                    key: mainScrollController.shinkanKey,
                     waiting: waitingMainShinkan,
                     child: MainShinkanView(deviceInfo: deviceInfo,),
                   ),
                   DelayLoadingViewLite(
-                    key: mainWorksKey,
+                    key: mainScrollController.worksKey,
                       waiting: waitingMainWork,
                       child: MainWorksView(deviceInfo: deviceInfo,)
                   ),
                   DelayLoadingViewLite(
-                    key: mainQAKey,
+                    key: mainScrollController.qaKey,
                       waiting: waitingMainQA,
                     child: MainQAView(deviceInfo: deviceInfo,),
                   ),
                   DelayLoadingViewLite(
-                    key: mainFooterKey,
+                    key: mainScrollController.footerKey,
                     waiting: waitingMainFooter,
                     child: MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -Top \n https://kcs1959.github.io/2020new/",),
                   )

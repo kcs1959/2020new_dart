@@ -13,10 +13,10 @@ import 'package:kcs_2020_shinkan_web/wid/scaleOnHover.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 const TextStyle headerText = TextStyle(
-    fontSize: 300.0,
+    fontSize: 500.0,
     fontWeight: FontWeight.bold,
     color: Colors.white,
-    height: 1.0
+    height: 1.2
 );
 
 Widget _flightShuttleBuilder(
