@@ -30,7 +30,7 @@ class CharacterPage extends StatelessWidget {
                   menuColor: Color(0xFF004D40),
                 ),
                 CharacterContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo, tint: Color(0xFF004D40), shareText: "KCS新歓特設ページ2020 -キャラクター紹介 \n https://kcs1959.github.io/2020new/#/character/",)
+                MainFooter(deviceInfo: deviceInfo, tint: Color(0xFF004D40), shareText: "KCS新歓特設ページ2020 -キャラクター紹介 \n https://kcs1959.github.io/2020new/#/character",)
               ],
             ),
           );

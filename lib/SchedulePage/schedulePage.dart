@@ -30,7 +30,7 @@ class SchedulePage extends StatelessWidget {
                   menuColor: Color(0xFF1A237E),
                 ),
                 ScheduleContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo, tint: Color(0xFF1A237E),shareText: "KCS新歓特設ページ2020 -年間行事 \n https://kcs1959.github.io/2020new/#/schedule/",)
+                MainFooter(deviceInfo: deviceInfo, tint: Color(0xFF1A237E),shareText: "KCS新歓特設ページ2020 -年間行事 \n https://kcs1959.github.io/2020new/#/schedule",)
               ],
             ),
           );

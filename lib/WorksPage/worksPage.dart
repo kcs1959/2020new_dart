@@ -12,20 +12,20 @@ class WorksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NavigateWorksArgument args = ModalRoute.of(context).settings.arguments;
-    return WorksPageCore(argument: args,);
+    return _WorksPageCore(argument: args,);
   }
 }
 
-class WorksPageCore extends StatefulWidget {
+class _WorksPageCore extends StatefulWidget {
   final NavigateWorksArgument argument;
 
-  WorksPageCore({Key key, this.argument}): super(key: key);
+  _WorksPageCore({Key key, this.argument}): super(key: key);
 
   @override
-  State<StatefulWidget> createState() => WorksPageCoreState();
+  State<StatefulWidget> createState() => _WorksPageCoreState();
 }
 
-class WorksPageCoreState extends State<WorksPageCore> {
+class _WorksPageCoreState extends State<_WorksPageCore> {
   DeviceInfo deviceInfo;
 
   @override

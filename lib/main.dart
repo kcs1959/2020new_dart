@@ -47,13 +47,24 @@ class MyAppState extends State<MyApp> {
         "/works/detail": (_) => new WorkDetailPage(),
         "/shinkan":   (_) => new ShinkanPage(),
         "/groups":    (_) => new GroupPage(),
-        "/groups/ai": (_) => new GroupAIPage(),
         "/character": (_) => new CharacterPage(),
         "/schedule":  (_) => new SchedulePage(),
         "/editorialNote": (_) => new EditorialNotePage()
       },
       onGenerateRoute: (settings, routes) {
         print("path: ${settings.name}");
+
+        var exp = new RegExp(r'^/groups/.+$');
+
+        if(exp.hasMatch(settings.name ?? "")) {
+          return MaterialPageRoute(
+            settings: RouteSettings(
+              name: "/groups",
+              arguments: NavigateGroupsArgument(settings.name.substring(7)),
+            ),
+            builder: (_) => new GroupPage()
+          );
+        }
 
         var paths = settings.name.split('?');
         if(paths.length == 2){

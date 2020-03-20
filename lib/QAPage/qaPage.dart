@@ -29,7 +29,7 @@ class QAPage extends StatelessWidget {
                   ),
                 ),
                 QAContentView(deviceInfo: deviceInfo,),
-                MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -よくある質問 \n https://kcs1959.github.io/2020new/#/questions/",)
+                MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -よくある質問 \n https://kcs1959.github.io/2020new/#/questions",)
               ],
             ),
           );
