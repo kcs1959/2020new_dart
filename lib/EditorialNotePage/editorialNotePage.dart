@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/EditorialNotePage/editorialNoteContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
@@ -26,11 +27,7 @@ class EditorialNotePage extends StatelessWidget {
                   deviceInfo: deviceInfo,
                   title: Text(
                     "編集\n後記",
-                    style: TextStyle(
-                        fontFamily: "CorporateLogo",
-                        color: Colors.black,
-                        fontSize: 20.0
-                    ),
+                    style: BaseTextStyles.halfLogoTint(tint: Colors.black),
                   ).safeText(),
                   menuColor: Color(0xDE121212),
                 ),

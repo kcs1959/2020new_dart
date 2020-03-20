@@ -8,9 +8,7 @@ import 'package:kcs_2020_shinkan_web/GroupPage/groupBlenderPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupDTMPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupUnityPage.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupWebPage.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
-import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
-import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/wid/scaleOnHover.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 

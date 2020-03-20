@@ -1,6 +1,4 @@
 import 'package:fb_auth/fb_auth.dart';
-import 'package:firebase/firebase.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -36,7 +34,6 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   final _auth = AuthBloc(app: null);
-  // This widget is the root of your application.
   @override
   void initState() {
     super.initState();
@@ -73,30 +70,6 @@ class MyAppState extends State<MyApp> {
             }
           }
           return null;
-          /*var queryParameters = Uri.splitQueryString(paths[1]);
-          print("param: ${paths[1]}");
-          if(queryParameters.containsKey("id")){
-            id = queryParameters["id"];
-          }
-
-          if(paths[0] == "/"){
-            return MaterialPageRoute(
-              settings: RouteSettings(name: settings.name), // これによりURLが変わる
-              builder: (context) {
-                //return new MyHomePage(title: "fuga",);
-                return MultiProvider(
-                  providers: [
-                    Provider<MainViewModel>.value(value: MainViewModel()),
-                    Provider<UserViewModel>.value(value: UserViewModel()),
-                  ],
-                  child: MainTabbarPage(linkedId: id,),
-                );
-              },
-            );
-          }
-          else {
-            return null;
-          }*/
         }
         else {
           return null;
@@ -108,11 +81,11 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KCS::Keio Computer Society 新歓特設サイト',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: "Noto Sans JP",
-      ),
+        title: 'KCS::Keio Computer Society 新歓特設サイト',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: "Noto Sans JP",
+        ),
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
@@ -122,18 +95,7 @@ class MyAppState extends State<MyApp> {
         ],
         onGenerateRoute: FastNavigator().getOnGenerateRoute,
         routes: FastNavigator().getRoutes,
-        /*
-      routes: {
-        "/main" :     (_) => new MainPage(),
-        "/questions": (_) => new QAPage(),
-        "/works":     (_) => new WorksPage(),
-        "/shinkan":   (_) => new ShinkanPage(),
-        "/groups":    (_) => new GroupPage(),
-        "/groups/ai": (_) => new GroupAIPage(),
-        "/character": (_) => new CharacterPage(),
-        "/schedule":  (_) => new SchedulePage()
-      },*/
-      home: MainPage()
+        home: MainPage()
     );
   }
 }

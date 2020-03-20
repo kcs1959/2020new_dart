@@ -1,4 +1,4 @@
-import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
+import 'package:kcs_2020_shinkan_web/util/WorkGenre.dart';
 
 class WorkInfo {
   final int id;
@@ -14,5 +14,17 @@ class WorkInfo {
   final String language;
   final String embed;
 
-  const WorkInfo(this.id, this.title, this.head, this.author, this.faculty, this.comment, this.image, this.link, this.genres, this.tool, this.language, {this.embed});
+  const WorkInfo(
+      this.id,
+      this.title,
+      this.head,
+      this.author,
+      this.faculty,
+      this.comment,
+      this.image,
+      this.link,
+      this.genres,
+      this.tool,
+      this.language,
+      {this.embed});
 }

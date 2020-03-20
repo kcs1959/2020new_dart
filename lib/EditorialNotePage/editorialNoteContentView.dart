@@ -1,7 +1,6 @@
 import 'package:easy_web_view/easy_web_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 class EditorialNoteContentView extends StatelessWidget {
   final DeviceInfo deviceInfo;
@@ -22,10 +21,6 @@ class EditorialNoteContentView extends StatelessWidget {
           widgetsTextSelectable: true,
           webAllowFullScreen: false,
         ),
-        /*child: Markdown(
-          data: markDown,
-          selectable: true,
-        )*/
       ),
     );
   }

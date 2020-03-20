@@ -2,7 +2,8 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/CharacterPage/characterContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
@@ -24,11 +25,7 @@ class CharacterPage extends StatelessWidget {
                   deviceInfo: deviceInfo,
                   title: Text(
                     "公式\nキャラクター",
-                    style: TextStyle(
-                       fontFamily: "CorporateLogo",
-                      color: Colors.white,
-                      fontSize: 20.0
-                    ),
+                    style: BaseTextStyles.halfLogo,
                   ).safeText(),
                   menuColor: Color(0xFF004D40),
                 ),

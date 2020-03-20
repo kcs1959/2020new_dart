@@ -1,9 +1,6 @@
-
-
 import 'dart:math';
-
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
-import 'package:kcs_2020_shinkan_web/mainWorksView.dart';
+import 'package:kcs_2020_shinkan_web/util/WorkGenre.dart';
 
 const _works = <WorkInfo>[
   WorkInfo(0, "馬・シマウマ相互変換AI", "相互変換AI", "supercell", "理工学部2年", null, ["image/works/supercell_ai.jpg"], null, [WorkGenre.AI,], null, "Python"),

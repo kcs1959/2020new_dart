@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
@@ -13,7 +13,6 @@ class GroupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     analytics().logEvent("PAGE_GROUP", null);
-    //final Groups argument =  ModalRoute.of(context).settings.arguments;
     return Scaffold(
       backgroundColor: Color(0xFF121212),
       body: LayoutBuilder(
@@ -42,8 +41,4 @@ class GroupPage extends StatelessWidget {
       ),
     );
   }
-}
-
-enum Groups {
-  AI, UNITY, WEB, BLENDER, DTM
 }

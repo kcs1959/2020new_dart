@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/ext/randomIcon.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 class UnderConstructionView extends StatefulWidget {
   final DeviceInfo deviceInfo;

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 
 class GroupInfoLayout extends StatelessWidget {
   final List<Widget> children;

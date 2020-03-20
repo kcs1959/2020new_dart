@@ -1,9 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
 const TextStyle titleStyleA = TextStyle(
@@ -23,16 +22,13 @@ const TextStyle titleStyleB = TextStyle(
 
 class MainTopPosterView extends StatelessWidget {
   final DeviceInfo deviceInfo;
-  final VoidCallback toWhat;
-  final VoidCallback toShinkan;
-  final VoidCallback toWork;
-  final VoidCallback toQA;
+  final VoidCallback toWhat, toShinkan, toWork, toQA;
+
   MainTopPosterView({
     Key key,
     this.deviceInfo,
     this.toWhat, this.toShinkan, this.toWork, this.toQA
-  })
-      : assert(deviceInfo != null), super(key: key);
+  }): assert(deviceInfo != null), super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +53,10 @@ class MainTopPosterView extends StatelessWidget {
                     child: topContentA(deviceInfo.size.height, context)
                 ),
               ),
-              mainAppBar(toWhat, toShinkan, toWork, toQA),
+              MainAppBar(
+                toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA,
+                isMobile: false,
+              ),
               Positioned(
                 left: 0, right: 0, bottom: 0,
                 child: Container(
@@ -97,7 +96,10 @@ class MainTopPosterView extends StatelessWidget {
               Positioned.fill(
                 child: topContentA(deviceInfo.size.height, context),
               ),
-              mainAppBar(toWhat, toShinkan, toWork, toQA),
+              MainAppBar(
+                toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA,
+                isMobile: false,
+              ),
               Positioned(
                 left: 0, right: 0, bottom: 0,
                 child: Container(
@@ -138,7 +140,10 @@ class MainTopPosterView extends StatelessWidget {
                 Positioned.fill(
                   child: topContentA(deviceInfo.size.width, context),
                 ),
-                mainAppBar(toWhat, toShinkan, toWork, toQA),
+                MainAppBar(
+                  toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA,
+                  isMobile: false,
+                ),
                 Positioned(
                   left: 0, right: 0, bottom: 0,
                   child: Container(
@@ -185,8 +190,9 @@ class MainTopPosterView extends StatelessWidget {
                 Positioned.fill(
                   child: topContentB(),
                 ),
-                MainAppBarMobile(
-                    toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA
+                MainAppBar(
+                  toWhat: toWhat, toShinkan: toShinkan, toWork: toWork, toQA: toQA,
+                  isMobile: true,
                 ),
                 Positioned(
                   left: 0, right: 0, bottom: 0,
@@ -216,6 +222,8 @@ class MainTopPosterView extends StatelessWidget {
         return Center(child: Text("TopContentC"),);
       }
     }
+
+    return Container();
   }
 
   Widget topContentA(double height, context) {
@@ -238,12 +246,12 @@ class MainTopPosterView extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 280,
+              top: 280,
               left: 0,
               right: 0,
               bottom: 0,
               child: GestureDetector(
-                onTap: Link.toTwitterKCS,
+                  onTap: Link.toTwitterKCS,
                   child: Image.asset("image/kcschann.png", fit: BoxFit.fitHeight).showCursorOnHover
               )
           ),

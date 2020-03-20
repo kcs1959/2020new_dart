@@ -1,10 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
-import 'package:kcs_2020_shinkan_web/view/underConstructionView.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
 
 class CharacterContentView extends StatelessWidget {
@@ -14,7 +13,6 @@ class CharacterContentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //return UnderConstructionView(deviceInfo: deviceInfo,);
     if(deviceInfo.displayAspect == DisplayAspect.WIDE
       || deviceInfo.displayAspect == DisplayAspect.NEAR_SQUARE) {
       return Container(

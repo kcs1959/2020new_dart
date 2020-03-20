@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksTile.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:expanded_grid/expanded_grid.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/util/link.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 
@@ -45,7 +45,6 @@ class _WorksContentViewState extends State<WorksContentView> {
 
   @override
   Widget build(BuildContext context) {
-    //return UnderConstructionView(widget.deviceInfo: widget.deviceInfo,);
     if(widget.deviceInfo.displayAspect == DisplayAspect.WIDE
       || widget.deviceInfo.displayAspect == DisplayAspect.NEAR_SQUARE) {
       return Container(

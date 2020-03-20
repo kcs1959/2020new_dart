@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
+
+const TextStyle _logo = TextStyle(
+    fontFamily: "CorporateLogo",
+    color: Colors.white,
+    fontSize: 40.0,
+    fontWeight: FontWeight.bold
+);
 
 const TextStyle _h1 = TextStyle(
   fontFamily: "MPlus",
@@ -91,6 +98,8 @@ class BaseTextStyles {
   static TextStyle get qasummary => _qasummary;
   static TextStyle get button => _button;
   static TextStyle get question => _question;
+  static TextStyle get logo => _logo;
+  static TextStyle get halfLogo => _logo.merge(TextStyle(fontSize: _logo.fontSize / 2));
 
   static TextStyle h1Tint(DeviceInfo info, {Color tint}) => tint == null
       ? h1(info)
@@ -110,6 +119,12 @@ class BaseTextStyles {
   static TextStyle buttonTint({Color tint}) => tint == null
       ? _button
       : _button.merge(TextStyle(color: tintColor(_button.color, tint)));
+  static TextStyle logoTint({Color tint}) => tint == null
+      ? _logo
+      : _logo.merge(TextStyle(color: tintColor(_logo.color, tint)));
+  static TextStyle halfLogoTint({Color tint}) => tint == null
+      ? halfLogo
+      : halfLogo.merge(TextStyle(color: tintColor(_logo.color, tint)));
 
   static TextStyle get h2CharacterBlue => _h2character.merge(TextStyle(color: Colors.blue));
   static TextStyle get h2CharacterRed => _h2character.merge(TextStyle(color: Colors.red));

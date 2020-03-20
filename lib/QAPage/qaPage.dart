@@ -2,9 +2,9 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/QAPage/qaContentView.dart';
-import 'package:kcs_2020_shinkan_web/mainAppBar.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 
 class QAPage extends StatelessWidget {
@@ -21,7 +21,13 @@ class QAPage extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SubAppBar(deviceInfo: deviceInfo,),
+                SubAppBar(
+                  deviceInfo: deviceInfo,
+                  title: Text(
+                    "質問集",
+                    style: BaseTextStyles.logo,
+                  ),
+                ),
                 QAContentView(deviceInfo: deviceInfo,),
                 MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -よくある質問 \n https://kcs1959.github.io/2020new/#/questions/",)
               ],

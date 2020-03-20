@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/workInfo.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/works.dart';
 import 'package:kcs_2020_shinkan_web/WorksPage/worksPage.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
-import 'package:kcs_2020_shinkan_web/util/fastNavigator.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
+import 'package:kcs_2020_shinkan_web/util/WorkGenre.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
@@ -21,13 +21,13 @@ class MainWorksView extends StatefulWidget {
 }
 
 class _MainWorksViewState extends State<MainWorksView> {
-  List<WorkInfo> pickuped;
+  List<WorkInfo> pickedUp;
 
   @override
   void initState() {
     super.initState();
 
-    pickuped = WorksData.pickUp(3);
+    pickedUp = WorksData.pickUp(3);
   }
 
   @override
@@ -52,7 +52,7 @@ class _MainWorksViewState extends State<MainWorksView> {
                 ),
               ),
               ResponsiveGridRow(
-                children: pickuped.map((work) {
+                children: pickedUp.map((work) {
                   return ResponsiveGridCol(
                     sm: 12, md: 6, lg: 4,
                     child: widget.deviceInfo.device == Device.PC
@@ -183,50 +183,5 @@ class _MainWorksViewState extends State<MainWorksView> {
         ).showCursorOnHover,
       ),
     );
-  }
-}
-/*
-var works = <WorkInfo>[
-  WorkInfo("つらたん", "つらいときにやるゲーム", "image/tsuratan.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
-  //WorkInfo("クラタン", "スマホで自作の単語帳", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.TOOL]),
-  //WorkInfo("年賀状", "出す気がない", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME]),
-  WorkInfo("BEYOND THE LIMIT", "レジェンド先生作", "image/beyondthelimit.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME, WorkGenre.BLENDER]),
-  //WorkInfo("接待オセロ", "人にやさしいAI", "image/uzuka_rough.jpg", <WorkGenre>[WorkGenre.WEB, WorkGenre.GAME, WorkGenre.AI]),
-  WorkInfo("熱盛", "三田祭で大人気！", "image/atsumori.jpg", <WorkGenre>[WorkGenre.UNITY, WorkGenre.GAME]),
-];*/
-
-enum WorkGenre {
-  WEB, AI, UNITY, BLENDER, DTM, OTHERS,
-  STUDY, GAME, TOOL, CG, MUSIC
-}
-
-extension WorkGenreExtension on WorkGenre {
-  String getString() {
-    switch(this) {
-      case WorkGenre.WEB:
-        return "Web";
-      case WorkGenre.AI:
-        return "AI";
-      case WorkGenre.UNITY:
-        return "Unity";
-      case WorkGenre.BLENDER:
-        return "Blender";
-      case WorkGenre.DTM:
-        return "DTM";
-      case WorkGenre.OTHERS:
-        return "Others";
-      case WorkGenre.STUDY:
-        return "Study";
-      case WorkGenre.GAME:
-        return "Game";
-      case WorkGenre.TOOL:
-        return "Tool";
-      case WorkGenre.CG:
-        return "CG";
-      case WorkGenre.MUSIC:
-        return "Music";
-      default:
-        return this.toString().substring(10);
-    }
   }
 }

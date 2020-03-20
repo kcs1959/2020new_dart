@@ -2,8 +2,7 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/ShinkanPage/shinkanContentView.dart';
 import 'package:kcs_2020_shinkan_web/mainFooter.dart';
-
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 import 'package:kcs_2020_shinkan_web/view/subAppBar.dart';
 
 class ShinkanPage extends StatelessWidget {

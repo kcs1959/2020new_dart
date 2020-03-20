@@ -1,8 +1,8 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/ext/hover_extensions.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 const TextStyle menuTextStyle = TextStyle(
   color: Colors.white70,
@@ -52,10 +52,7 @@ class _SubAppBarState extends State<SubAppBar> {
     menuColor = widget.menuColor ?? Colors.white70;
     titleText = widget.title ?? Text(
       "新歓",
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold),
+      style: BaseTextStyles.logo,
     );
 
     _controller = ExpandableController();

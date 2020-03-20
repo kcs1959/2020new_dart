@@ -2,9 +2,9 @@ import 'package:firebase/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcs_2020_shinkan_web/GroupPage/groupInfoLayout.dart';
-import 'package:kcs_2020_shinkan_web/mainPage.dart';
 import 'package:kcs_2020_shinkan_web/style/TextStyles.dart';
 import 'package:kcs_2020_shinkan_web/ext/safeText.dart';
+import 'package:kcs_2020_shinkan_web/util/DeviceInfo.dart';
 
 class GroupAIPage extends StatelessWidget {
   DeviceInfo deviceInfo;
