@@ -1,6 +1,6 @@
 name: kcs_2020_shinkan_web
 description: Keio Computer Society 2020年度新歓特設ページです！
-version: 1.4.1
+version: 1.5.0
 
 environment:
   sdk: ">=2.6.0 <3.0.0"

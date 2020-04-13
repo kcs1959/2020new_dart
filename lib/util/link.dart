@@ -16,6 +16,9 @@ const String _KCS_TUBER = "https://kcs1959.github.io/kcstuber/";
 const String _SHARE_TWITTER = "https://twitter.com/intent/tweet?text=";
 const String _SHARE_LINE = "https://social-plugins.line.me/lineit/share?url=";
 
+const String _FORM_JA = "https://forms.gle/Tt2Sjj3GrByMHszeA";
+const String _FORM_EN = "https://forms.gle/Fx8LVGVUWs5vmGhS8";
+
 class Link {
   static void toTwitterKCS() async {
     await _hyperLink(_TWITTER_KCS);
@@ -55,6 +58,14 @@ class Link {
 
   static void toSessionsKCS() async {
     await _hyperLink(_SESSIONS_KCS);
+  }
+
+  static void toFormJapanese() async {
+    await _hyperLink(_FORM_JA);
+  }
+
+  static void toFormEnglish() async {
+    await _hyperLink(_FORM_EN);
   }
 
   static void shareTwitter(String text) async {
