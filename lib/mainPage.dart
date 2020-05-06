@@ -118,27 +118,27 @@ class MainPageState extends State<MainPage> {
                         toQA: toQAListener,
                       )
                   ),
-                  DelayLoadingViewLite(
+                  DelayLoadingView(
                     key: mainScrollController.whatKey,
                       waiting: waitingMainWhat,
                       child: MainWhatIsKCSView(deviceInfo: deviceInfo,)
                   ),
-                  DelayLoadingViewLite(
+                  DelayLoadingView(
                     key: mainScrollController.shinkanKey,
                     waiting: waitingMainShinkan,
                     child: MainShinkanView(deviceInfo: deviceInfo,),
                   ),
-                  DelayLoadingViewLite(
+                  DelayLoadingView(
                     key: mainScrollController.worksKey,
                       waiting: waitingMainWork,
                       child: MainWorksView(deviceInfo: deviceInfo,)
                   ),
-                  DelayLoadingViewLite(
+                  DelayLoadingView(
                     key: mainScrollController.qaKey,
                       waiting: waitingMainQA,
                     child: MainQAView(deviceInfo: deviceInfo,),
                   ),
-                  DelayLoadingViewLite(
+                  DelayLoadingView(
                     key: mainScrollController.footerKey,
                     waiting: waitingMainFooter,
                     child: MainFooter(deviceInfo: deviceInfo, shareText: "KCS新歓特設ページ2020 -Top \n https://kcs1959.github.io/2020new/",),

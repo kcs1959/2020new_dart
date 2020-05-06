@@ -92,7 +92,23 @@ class MainShinkanView extends StatelessWidget {
                   style: BaseTextStyles.plain,
                 ),
               ),
-              Center(
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  "[重要]入会について(2020/05/07追記)",
+                  style: BaseTextStyles.h2,
+                ).safeText(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+                child: Text(
+                  "　仮入会手続きは04/30に締め切りました。そのため仮入会フォームも公開停止とさせていただきます。"
+                      + "\nKCSでは通年で部員を募集しています。仮入会という形ではありませんが、入会したい場合はどこかに連絡をください。都度対応いたします。"
+                      + "\n非常にイレギュラーな新歓期間でしたが、仮入会していただいた多くの皆さん、ありがとうございました。",
+                  style: BaseTextStyles.plain,
+                ),
+              ),
+              /*Center(
                 child: Wrap(
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.center,
@@ -102,7 +118,7 @@ class MainShinkanView extends StatelessWidget {
                     linkCard("LINE@", "新歓情報", Image.asset("image/linelogo.png", height: 48), Link.toLineKCS).showCursorOnHover,
                   ],
                 ),
-              )
+              )*/
             ],
           ),
         ),
